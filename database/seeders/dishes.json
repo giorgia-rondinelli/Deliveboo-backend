@@ -1,0 +1,610 @@
+{
+    "Italiano": [
+        {
+            "name": "Spaghetti alla Carbonara",
+            "description": "Pasta con guanciale, uova, pecorino romano e pepe",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Margherita",
+            "description": "Pizza con pomodoro, mozzarella e basilico",
+            "price": 8.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Risotto ai Funghi",
+            "description": "Risotto con funghi porcini freschi",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Lasagna",
+            "description": "Lasagna al forno con ragù e besciamella",
+            "price": 13.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Tagliatelle al Ragù",
+            "description": "Pasta con ragù alla bolognese",
+            "price": 11.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Penne all'Arrabbiata",
+            "description": "Pasta con salsa di pomodoro piccante",
+            "price": 10.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Tiramisù",
+            "description": "Dolce al mascarpone e caffè",
+            "price": 6.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Panna Cotta",
+            "description": "Dolce con panna e frutti di bosco",
+            "price": 5.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Focaccia",
+            "description": "Pane piatto condito con olio d'oliva e rosmarino",
+            "price": 4.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Bruschetta",
+            "description": "Pane tostato con pomodoro, aglio e basilico",
+            "price": 7.0,
+            "is_visible": 1
+        }
+    ],
+    "Francese": [
+        {
+            "name": "Coq au Vin",
+            "description": "Pollo cotto nel vino rosso con funghi, pancetta e cipolle",
+            "price": 18.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Bouillabaisse",
+            "description": "Zuppa di pesce tradizionale provenzale",
+            "price": 20.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Croque Monsieur",
+            "description": "Panino grigliato con prosciutto e formaggio",
+            "price": 9.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Escargot",
+            "description": "Chioccioline al burro e aglio",
+            "price": 15.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Quiche Lorraine",
+            "description": "Torta salata con pancetta e formaggio",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Soupe à l'oignon",
+            "description": "Zuppa di cipolle gratinata",
+            "price": 8.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Crêpes Suzette",
+            "description": "Crêpes al Grand Marnier e arancia",
+            "price": 10.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Ratatouille",
+            "description": "Stufato di verdure provenzale",
+            "price": 11.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Tarte Tatin",
+            "description": "Torta rovesciata con mele caramellate",
+            "price": 9.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Cassoulet",
+            "description": "Stufato di fagioli, carne e salsiccia",
+            "price": 16.0,
+            "is_visible": 1
+        }
+    ],
+    "Giapponese": [
+        {
+            "name": "Sushi Assortito",
+            "description": "Assortimento di sushi fresco",
+            "price": 22.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Ramen",
+            "description": "Zuppa di noodle con brodo di carne o pesce",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Tempura",
+            "description": "Frittura di gamberi e verdure in pastella leggera",
+            "price": 16.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Tonkatsu",
+            "description": "Costoletta di maiale impanata e fritta",
+            "price": 15.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Matcha Ice Cream",
+            "description": "Gelato al tè verde",
+            "price": 7.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Mochi",
+            "description": "Dolcetti di riso giapponesi",
+            "price": 6.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Onigiri",
+            "description": "Polpette di riso ripiene",
+            "price": 8.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Katsu Curry",
+            "description": "Riso con costoletta di maiale al curry",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Shabu Shabu",
+            "description": "Carne e verdure cotte in brodo",
+            "price": 25.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Gyoza",
+            "description": "Ravioli giapponesi",
+            "price": 8.0,
+            "is_visible": 1
+        }
+    ],
+    "Cinese": [
+        {
+            "name": "Mapo Tofu",
+            "description": "Tofu piccante con carne macinata",
+            "price": 11.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Sweet and Sour Pork",
+            "description": "Maiale in agrodolce",
+            "price": 13.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Kung Pao Chicken",
+            "description": "Pollo piccante con arachidi",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Peking Duck",
+            "description": "Anatra alla pechinese",
+            "price": 30.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Dim Sum",
+            "description": "Piccoli piatti assortiti",
+            "price": 18.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Hot Pot",
+            "description": "Zuppa bollente con ingredienti vari",
+            "price": 25.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Spring Rolls",
+            "description": "Involtini primavera",
+            "price": 6.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Chow Mein",
+            "description": "Noodle fritto con verdure e carne",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Egg Fried Rice",
+            "description": "Riso fritto con uova",
+            "price": 9.0,
+            "is_visible": 1
+        },
+        {
+            "name": "General Tso's Chicken",
+            "description": "Pollo fritto con salsa piccante",
+            "price": 15.0,
+            "is_visible": 1
+        }
+    ],
+    "Messicano": [
+        {
+            "name": "Tacos",
+            "description": "Involtini di mais con ripieno vario",
+            "price": 8.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Burrito",
+            "description": "Involtino di farina con ripieno vario",
+            "price": 10.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Quesadilla",
+            "description": "Tortilla ripiena di formaggio e altri ingredienti",
+            "price": 9.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Enchiladas",
+            "description": "Tortillas ripiene e cotte al forno",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Guacamole",
+            "description": "Dip di avocado con cipolla e pomodoro",
+            "price": 7.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Churros",
+            "description": "Dolcetti fritti con zucchero e cannella",
+            "price": 5.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Fajitas",
+            "description": "Carne e verdure grigliate con tortillas",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Tamales",
+            "description": "Involtini di mais ripieni",
+            "price": 8.0,
+            "is_visible": 1
+        }
+    ],
+    "Steakhouse": [
+        {
+            "name": "Filet Mignon",
+            "description": "Bistecca di filetto di manzo alla griglia",
+            "price": 30.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Ribeye Steak",
+            "description": "Bistecca ribeye alla griglia con patate arrosto",
+            "price": 28.0,
+            "is_visible": 1
+        },
+        {
+            "name": "T-Bone Steak",
+            "description": "Bistecca T-Bone alla griglia con salsa bernese",
+            "price": 32.0,
+            "is_visible": 1
+        },
+        {
+            "name": "New York Strip Steak",
+            "description": "Bistecca New York Strip alla griglia con funghi trifolati",
+            "price": 26.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Porterhouse Steak",
+            "description": "Bistecca Porterhouse alla griglia con contorno di verdure miste",
+            "price": 34.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Grilled Lamb Chops",
+            "description": "Costolette d'agnello alla griglia con salsa di menta",
+            "price": 29.0,
+            "is_visible": 1
+        },
+        {
+            "name": "BBQ Ribs",
+            "description": "Costine di maiale alla griglia con salsa barbecue",
+            "price": 25.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Sirloin Steak",
+            "description": "Bistecca di controfiletto alla griglia con patate fritte",
+            "price": 27.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Prime Rib",
+            "description": "Costata di manzo alla griglia con purè di patate",
+            "price": 31.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Grilled Chicken Breast",
+            "description": "Petto di pollo alla griglia con verdure alla griglia",
+            "price": 18.0,
+            "is_visible": 1
+        }
+    ],
+    "Indiano": [
+        {
+            "name": "Chicken Tikka Masala",
+            "description": "Pollo marinato e cotto nel curry cremoso",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Naan Bread",
+            "description": "Pane indiano fresco cotto nel tandoor",
+            "price": 4.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Vegetable Biryani",
+            "description": "Riso speziato con verdure e frutta secca",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Paneer Tikka",
+            "description": "Formaggio paneer marinato e grigliato",
+            "price": 11.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Butter Chicken",
+            "description": "Pollo al burro cotto nel curry cremoso",
+            "price": 15.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Palak Paneer",
+            "description": "Formaggio paneer in salsa di spinaci",
+            "price": 13.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Chana Masala",
+            "description": "Ceci cotti in salsa di pomodoro e spezie",
+            "price": 10.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Samosa",
+            "description": "Pasticcino fritto ripieno di patate e piselli",
+            "price": 6.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Mango Lassi",
+            "description": "Bevanda allo yogurt con mango",
+            "price": 4.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Gulab Jamun",
+            "description": "Dolce fritto in sciroppo di zucchero",
+            "price": 5.5,
+            "is_visible": 1
+        }
+    ],
+    "Vegano": [
+        {
+            "name": "Quinoa Salad",
+            "description": "Insalata di quinoa con avocado e pomodori",
+            "price": 11.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Vegan Burger",
+            "description": "Hamburger vegano con lattuga, pomodoro e cipolla caramellata",
+            "price": 9.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Tofu Stir-Fry",
+            "description": "Tofu saltato in padella con verdure miste",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Zucchini Noodles",
+            "description": "Tagliatelle di zucchine con pesto di basilico",
+            "price": 10.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Chickpea Curry",
+            "description": "Curry di ceci con riso basmati",
+            "price": 10.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Sweet Potato Fries",
+            "description": "Patatine dolci al forno con salsa di avocado",
+            "price": 7.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Mushroom Risotto",
+            "description": "Risotto ai funghi porcini con brodo vegetale",
+            "price": 13.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Vegan Pizza",
+            "description": "Pizza vegana con pomodoro, verdure grigliate e formaggio vegano",
+            "price": 12.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Acai Bowl",
+            "description": "Bowl di acai con frutta fresca e granola",
+            "price": 8.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Coconut Curry Tofu",
+            "description": "Tofu al curry di cocco con riso basmati",
+            "price": 14.0,
+            "is_visible": 1
+        }
+    ],
+    "Pesce": [
+        {
+            "name": "Grilled Salmon",
+            "description": "Salmone alla griglia con salsa di burro e limone",
+            "price": 20.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Fish Tacos",
+            "description": "Tacos con pesce fresco, salsa di mango e guacamole",
+            "price": 18.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Seafood Paella",
+            "description": "Paella di mare con gamberi, cozze e calamari",
+            "price": 25.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Shrimp Scampi",
+            "description": "Gamberi saltati in padella con aglio e prezzemolo",
+            "price": 22.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Lobster Tail",
+            "description": "Coda di aragosta alla griglia con burro fuso",
+            "price": 32.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Crab Cakes",
+            "description": "Polpette di granchio con salsa remoulade",
+            "price": 21.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Clam Chowder",
+            "description": "Zuppa di vongole cremosa",
+            "price": 14.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Tuna Poke Bowl",
+            "description": "Bowl con tonno crudo marinato, riso e avocado",
+            "price": 16.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Fish and Chips",
+            "description": "Filetti di pesce fritti con patatine",
+            "price": 17.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Grilled Swordfish",
+            "description": "Pesce spada alla griglia con salsa di limone e capperi",
+            "price": 23.0,
+            "is_visible": 1
+        }
+    ],
+    "Fast Food": [
+        {
+            "name": "Cheeseburger",
+            "description": "Hamburger con formaggio, lattuga e pomodoro",
+            "price": 6.5,
+            "is_visible": 1
+        },
+        {
+            "name": "French Fries",
+            "description": "Patatine fritte croccanti",
+            "price": 3.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Chicken Nuggets",
+            "description": "Palline di pollo croccanti",
+            "price": 5.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Hot Dog",
+            "description": "Panino con salsiccia e condimenti",
+            "price": 4.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Onion Rings",
+            "description": "Anelli di cipolla fritti",
+            "price": 4.5,
+            "is_visible": 1
+        },
+        {
+            "name": "BBQ Pulled Pork Sandwich",
+            "description": "Panino con maiale in salsa barbecue",
+            "price": 7.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Soft Pretzel",
+            "description": "Pretzel morbido servito caldo",
+            "price": 3.5,
+            "is_visible": 1
+        },
+        {
+            "name": "Milkshake",
+            "description": "Frullato di gelato alla vaniglia",
+            "price": 4.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Fried Chicken Sandwich",
+            "description": "Panino con pollo fritto, lattuga e maionese",
+            "price": 6.0,
+            "is_visible": 1
+        },
+        {
+            "name": "Chili Cheese Fries",
+            "description": "Patatine fritte con chili e formaggio fuso",
+            "price": 5.5,
+            "is_visible": 1
+        }
+    ]
+}
