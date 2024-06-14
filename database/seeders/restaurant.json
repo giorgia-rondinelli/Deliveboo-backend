@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Ristorante La Pergola",
+        "address": "Via Vittorio Veneto, 125, 00187 Roma RM",
+        "p_iva": "12345678901",
+        "image": false
+    },
+    {
+        "name": "Osteria Francescana",
+        "address": "Via Stella, 22, 41121 Modena MO",
+        "p_iva": "12345678902",
+        "image": false
+    },
+    {
+        "name": "Da Vittorio",
+        "address": "Via Cantalupa, 17, 24060 Brusaporto BG",
+        "p_iva": "12345678903",
+        "image": false
+    },
+    {
+        "name": "Le Calandre",
+        "address": "Via Liguria, 1, 35030 Rubano PD",
+        "p_iva": "12345678904",
+        "image": false
+    },
+    {
+        "name": "Piazza Duomo",
+        "address": "Piazza Risorgimento, 4, 12051 Alba CN",
+        "p_iva": "12345678905",
+        "image": false
+    },
+    {
+        "name": "Enoteca Pinchiorri",
+        "address": "Via Ghibellina, 87, 50122 Firenze FI",
+        "p_iva": "12345678906",
+        "image": false
+    },
+    {
+        "name": "Uliassi",
+        "address": "Banchina di Levante, 6, 60019 Senigallia AN",
+        "p_iva": "12345678907",
+        "image": false
+    },
+    {
+        "name": "Villa Crespi",
+        "address": "Via Fava, 18, 28016 Orta San Giulio NO",
+        "p_iva": "12345678908",
+        "image": false
+    },
+    {
+        "name": "Ristorante Cracco",
+        "address": "Galleria Vittorio Emanuele II, 20121 Milano MI",
+        "p_iva": "12345678909",
+        "image": false
+    },
+    {
+        "name": "La Madia",
+        "address": "Corso Filippo Re Capriata, 22, 92027 Licata AG",
+        "p_iva": "12345678910",
+        "image": false
+    },
+    {
+        "name": "Ristorante Reale",
+        "address": "Contrada Piana Santa Liberata, 67031 Castel di Sangro AQ",
+        "p_iva": "12345678911",
+        "image": false
+    },
+    {
+        "name": "Antica Corte Pallavicina",
+        "address": "Strada del Palazzo Due Torri, 3, 43010 Polesine Parmense PR",
+        "p_iva": "12345678912",
+        "image": false
+    },
+    {
+        "name": "Don Alfonso 1890",
+        "address": "Corso Sant'Agata, 11/13, 80061 Massa Lubrense NA",
+        "p_iva": "12345678913",
+        "image": false
+    },
+    {
+        "name": "Il Pagliaccio",
+        "address": "Via dei Banchi Vecchi, 129/a, 00186 Roma RM",
+        "p_iva": "12345678914",
+        "image": false
+    },
+    {
+        "name": "Seta",
+        "address": "Via Andegari, 9, 20121 Milano MI",
+        "p_iva": "12345678915",
+        "image": false
+    },
+    {
+        "name": "La Pergola",
+        "address": "Via Alberto Cadlolo, 101, 00136 Roma RM",
+        "p_iva": "12345678916",
+        "image": false
+    },
+    {
+        "name": "Casa Vissani",
+        "address": "Strada Statale 448, Baschi, 05023 Terni TR",
+        "p_iva": "12345678917",
+        "image": false
+    },
+    {
+        "name": "Il Luogo di Aimo e Nadia",
+        "address": "Via Privata Raimondo Montecuccoli, 6, 20147 Milano MI",
+        "p_iva": "12345678918",
+        "image": false
+    },
+    {
+        "name": "Da Caino",
+        "address": "Via della Chiesa, 4, 58014 Montemerano GR",
+        "p_iva": "12345678919",
+        "image": false
+    },
+    {
+        "name": "L'Olivo",
+        "address": "Via Capodimonte, 14, 80071 Anacapri NA",
+        "p_iva": "12345678920",
+        "image": false
+    }
+]
