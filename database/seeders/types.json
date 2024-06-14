@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Italian",
+        "image": "italian.jpg",
+        "metadata": {
+            "description": "Traditional Italian cuisine.",
+            "popular_dishes": ["Pizza", "Pasta", "Lasagna"]
+        }
+    },
+    {
+        "name": "Chinese",
+        "image": "chinese.jpg",
+        "metadata": {
+            "description": "Traditional Chinese cuisine.",
+            "popular_dishes": ["Dim Sum", "Peking Duck", "Sweet and Sour Pork"]
+        }
+    },
+    {
+        "name": "Mexican",
+        "image": "mexican.jpg",
+        "metadata": {
+            "description": "Traditional Mexican cuisine.",
+            "popular_dishes": ["Tacos", "Burritos", "Enchiladas"]
+        }
+    }
+]
