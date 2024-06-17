@@ -1,0 +1,29 @@
+.main-wrapper {
+    height: calc(100vh - 56px);
+
+    // background-color: #fff3ed;
+    .content {
+        height: 100%;
+        // width: 100%;
+        overflow: auto;
+
+    }
+
+    aside {
+        background-color: rgb(248, 249, 250);
+        width: 150px;
+
+        ul {
+            line-height: 40px;
+
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
