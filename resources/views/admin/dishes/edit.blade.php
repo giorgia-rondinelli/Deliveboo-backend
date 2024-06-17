@@ -58,6 +58,11 @@
                 {{-- pulsante di invio --}}
                 <button type="submit" class="btn btn-warning">modifica</button>
             </form>
+              <form action="{{route('admin.dish.destroy', $dish)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">delete</button>
+            </form>
         </div>
     </div>
 @endsection

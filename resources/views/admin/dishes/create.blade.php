@@ -31,13 +31,17 @@
                 </div>
 
                 {{-- visibilità --}}
-                <div class="mb-3 checkbox">
-                    <label class="form-label">È visibile</label>
+                  <div class="mb-3">
+                    <label class="form-label">Visibilità</label>
                     <div class="btn-group btn-group-sm" role="group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" name="is_visible">
-                        <label class="btn btn-outline-primary" for="btncheck1">È visibile</label>
+                        <input type="radio" class="btn-check" id="btncheck1" value="1" name="is_visible">
+                        <label class="btn btn-outline-primary" for="btncheck1">Visibile</label>
+
+                        <input type="radio" class="btn-check" id="btncheck2" value="0" name="is_visible" >
+                        <label class="btn btn-outline-primary" for="btncheck2">Non visibile</label>
                     </div>
                 </div>
+
 
                 {{-- immagine --}}
                 <div class="mb-3">
