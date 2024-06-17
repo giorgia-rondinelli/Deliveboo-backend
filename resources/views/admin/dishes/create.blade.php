@@ -5,6 +5,17 @@
             <p>Crea piatto</p>
         </div>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <div>
             <form id="uploadForm" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf

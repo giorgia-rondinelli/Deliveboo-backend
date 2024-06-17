@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DishRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\functions\Helper;
@@ -34,7 +35,7 @@ class DishController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DishRequest $request)
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         // dump($restaurant->id);
