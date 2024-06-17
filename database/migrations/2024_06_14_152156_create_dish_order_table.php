@@ -24,6 +24,8 @@ return new class extends Migration
                   ->on('orders')
                   ->cascadeOnDelete();
 
+            $table->integer('dish_quantity');
+
 
         });
     }
