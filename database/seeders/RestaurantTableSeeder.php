@@ -16,14 +16,17 @@ class RestaurantTableSeeder extends Seeder
     {
         $restaurants = json_decode(file_get_contents(__DIR__ . '/restaurant.json'));
 
+            $i = 1;
         foreach($restaurants as $restaurant){
             $newRestaurant = new Restaurant();
+            $newRestaurant->user_id = $i;
             $newRestaurant->name = $restaurant->name;
             $newRestaurant->slug = Helper::generateSlug($newRestaurant->name, Restaurant::class);
             $newRestaurant->address = $restaurant->address;
             $newRestaurant->p_iva = $restaurant->p_iva;
             $newRestaurant->image = $restaurant->image;
             $newRestaurant->save();
+            $i++;
             }
     }
 }
