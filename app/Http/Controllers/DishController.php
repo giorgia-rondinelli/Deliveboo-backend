@@ -123,8 +123,11 @@ class DishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Dish $dish)
     {
-        //
+
+        $dish->delete();
+
+        return redirect()->route('admin.dishes.index');
     }
 }

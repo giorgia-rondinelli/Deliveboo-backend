@@ -33,7 +33,11 @@
                             <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
                             <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">edit</a>
-                            <a href="#" class="btn btn-danger">delete</a>
+                            <form action="{{route('admin.dish.destroy', $dish)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">delete</button>
+                            </form>
                         </td>
                     </tr>
 
