@@ -1,47 +1,76 @@
 @extends('layouts.admin')
-
 @section('content')
     <div>
         <div>
-            <p>dish create</p>
+            <p>Crea piatto</p>
         </div>
 
         <div>
-            <form action="">
-                {{-- dish name --}}
+            <form id="dishForm" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                {{-- @method('POST') --}}
+                {{-- nome del piatto --}}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="name" class="form-label">Nome</label>
+                    <input name="name" type="text" class="form-control" id="name" required>
+                    <div class="invalid-feedback">Il nome è obbligatorio.</div>
                 </div>
 
-                {{-- description --}}
+                {{-- descrizione --}}
                 <div class="mb-3">
-                    <label for="text" class="form-label">Description</label>
-                    <textarea class="form-control me-2">Description</textarea>
+                    <label for="description" class="form-label">Descrizione</label>
+                    <textarea name="description" class="form-control me-2" id="description">Descrizione</textarea>
+                    <div class="invalid-feedback">La descrizione è obbligatoria.</div>
                 </div>
 
-                {{-- price --}}
+                {{-- prezzo --}}
                 <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
+                    <label for="price" class="form-label">Prezzo</label>
                     <input name="price" type="text" class="form-control" id="price">
+                    <div class="invalid-feedback">Il prezzo è obbligatorio e deve essere un numero valido.</div>
                 </div>
 
-                {{-- is visible --}}
-                <div class="mb-3 checkbox">
-                    <label class="form-label">Is visible</label>
+                {{-- visibilità --}}
+                  <div class="mb-3">
+                    <label class="form-label">Visibilità</label>
                     <div class="btn-group btn-group-sm" role="group">
-                        <input type="checkbox" class="btn-check" id="btncheck1">
-                        <label class="btn btn-outline-primary">is visible</label>
+                        <input type="radio" class="btn-check" id="btncheck1" value="1" name="is_visible">
+                        <label class="btn btn-outline-primary" for="btncheck1">Visibile</label>
+
+                        <input type="radio" class="btn-check" id="btncheck2" value="0" name="is_visible" >
+                        <label class="btn btn-outline-primary" for="btncheck2">Non visibile</label>
                     </div>
                 </div>
 
-                {{-- img --}}
+
+                {{-- immagine --}}
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input class="form-control" id="" type="file" name="">
-                    <img class="" id="" src="">
+                    <label for="image" class="form-label">Immagine</label>
+                    <input type="file" class="form-control" id="image" name="image" onchange="showimage(event)">
                 </div>
+                <img id="thumb" alt="Anteprima Immagine" style="max-width: 100%; height: auto;">
+
+                {{-- messaggio di errore --}}
+                <div id="error-message" class="alert alert-danger d-none" role="alert">
+                    Si sono verificati errori nei dati inseriti. Per favore, controlla e correggi i campi evidenziati.
+                </div>
+
+                {{-- pulsante di invio --}}
+                <button type="submit" class="btn btn-primary">Crea</button>
             </form>
         </div>
     </div>
 @endsection
+
+
+
+
+<script>
+
+        function showimage(event) {
+            const thumb = document.getElementById('thumb');
+            thumb.src = URL.createObjectURL(event.target.files[0]);
+            console.log(thumb);
+        }
+
+</script>
