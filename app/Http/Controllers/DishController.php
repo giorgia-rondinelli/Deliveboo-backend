@@ -38,23 +38,34 @@ class DishController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         // dump($restaurant->id);
-        // dd($request->all());
 
         $formData = $request->all();
+        // dd($request->all());
+
+        if (array_key_exists('image', $formData)) {
+
+            $imagePath = Storage::put('uploads', $formData['image']);
+            $originalName = $request->file('image')->getClientOriginalName();
+            $formData['image_original_name'] = $originalName;
+            $formData['image'] = $imagePath;
+        }
 
         $newDish = new Dish();
         // aggiungo l' id del ristorante
         $newDish->restaurant_id = $restaurant->id;
         $newDish->fill($formData);
-        dd($newDish);
+        $newDish->slug = Helper::generateSlug($newDish->name, dish::class);
+        $newDish->save();
+
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**

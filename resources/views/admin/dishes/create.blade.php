@@ -6,7 +6,7 @@
         </div>
 
         <div>
-            <form id="dishForm" action="{{ route('admin.dishes.store')}}" method="post">
+            <form id="dishForm" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 {{-- @method('POST') --}}
                 {{-- nome del piatto --}}

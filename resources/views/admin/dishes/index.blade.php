@@ -28,9 +28,9 @@
                         <td>{{$dish->name}}</td>
                         <td>{{$dish->description}}</td>
                         <td>{{$dish->price}}</td>
-                        <td>{{$dish->image}}</td>
+                        <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.png') }}" style="height: 100px" </td>
                         <td>
-                            <a href="#" class="btn btn-primary">show</a>
+                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
                             <a href="#" class="btn btn-warning">edit</a>
                             <a href="#" class="btn btn-danger">delete</a>
