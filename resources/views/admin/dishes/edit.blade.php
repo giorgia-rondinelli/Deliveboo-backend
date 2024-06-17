@@ -20,7 +20,7 @@
                 {{-- descrizione --}}
                 <div class="mb-3">
                     <label for="description" class="form-label">Descrizione</label>
-                    <textarea name="description" class="form-control me-2" id="description"  placeholder="{{ old('name', $dish->description) }}"></textarea>
+                    <textarea name="description" class="form-control me-2" id="description" value="{{$dish->description}}">{{$dish->description}}</textarea>
                     <div class="invalid-feedback">La descrizione è obbligatoria.</div>
                 </div>
 
@@ -32,11 +32,14 @@
                 </div>
 
                 {{-- visibilità --}}
-                <div class="mb-3 checkbox">
-                    <label class="form-label">È visibile</label>
+                <div class="mb-3">
+                    <label class="form-label">Visibilità</label>
                     <div class="btn-group btn-group-sm" role="group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" name="is_visible" {{$dish->is_visible?'checked':''}}>
-                        <label class="btn btn-outline-primary" for="btncheck1">È visibile</label>
+                        <input type="radio" class="btn-check" id="btncheck1" value="1" name="is_visible" {{ $dish->is_visible ? 'checked' : '' }}>
+                        <label class="btn btn-outline-primary" for="btncheck1">Visibile</label>
+
+                        <input type="radio" class="btn-check" id="btncheck2" value="0" name="is_visible" {{ !$dish->is_visible ? 'checked' : '' }}>
+                        <label class="btn btn-outline-primary" for="btncheck2">Non visibile</label>
                     </div>
                 </div>
 

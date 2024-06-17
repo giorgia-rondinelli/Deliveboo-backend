@@ -40,8 +40,14 @@ class DishController extends Controller
         // dump($restaurant->id);
 
         $formData = $request->all();
-        // dd($request->all());
-
+        // Verifica se il checkbox è stato inviato nel form
+        if (($formData['is_visible'])) {
+            // Se il checkbox è stato selezionato ('on' viene inviato dal browser)
+            $formData['is_visible'] = $formData['is_visible'] == 'on' ? 1 : 0;
+        } else {
+            // Se il checkbox non è stato selezionato, impostalo a 0 (non visibile)
+            $formData['is_visible'] = 0;
+        }
         if (array_key_exists('image', $formData)) {
 
             $imagePath = Storage::put('uploads', $formData['image']);
@@ -55,6 +61,7 @@ class DishController extends Controller
         $newDish->restaurant_id = $restaurant->id;
         $newDish->fill($formData);
         $newDish->slug = Helper::generateSlug($newDish->name, dish::class);
+        // dd($newDish);
         $newDish->save();
 
         return redirect()->route('admin.dishes.index');
@@ -82,7 +89,35 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        dd($request->all());
+        // dd($request->all());
+        // $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        // dump($restaurant->id);
+
+        $formData = $request->all();
+        // dd($request->all());
+        // if (($formData['is_visible'])) {
+        //     // Se il checkbox è stato selezionato ('on' viene inviato dal browser)
+        //     $formData['is_visible'] = $formData['is_visible'] == 'on' ? 1 : 0;
+        // } else {
+        //     // Se il checkbox non è stato selezionato, impostalo a 0 (non visibile)
+        //     $formData['is_visible'] = 0;
+        // }
+
+        if (array_key_exists('image', $formData)) {
+
+            $imagePath = Storage::put('uploads', $formData['image']);
+            $originalName = $request->file('image')->getClientOriginalName();
+            $formData['image_original_name'] = $originalName;
+            $formData['image'] = $imagePath;
+        }
+
+
+        $dish->update($formData);
+        $dish->slug = Helper::generateSlug($dish->name, dish::class);
+        // dd($dish);
+        $dish->save();
+
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
