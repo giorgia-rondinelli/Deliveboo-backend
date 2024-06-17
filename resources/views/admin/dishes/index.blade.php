@@ -3,8 +3,10 @@
 @section('content')
 
     <div class="mt-4 ms-4">
-        <div>
+        <div class="d-flex">
             <h1 class="mb-4">Dishes</h1>
+            <a href="{{route('admin.dishes.create')}}" class="btn btn-success">create</a>
+
         </div>
 
         <div>
@@ -30,7 +32,6 @@
                         <td>
                             <a href="#" class="btn btn-primary">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
-                            <a href="#" class="btn btn-success">create</a>
                             <a href="#" class="btn btn-warning">edit</a>
                             <a href="#" class="btn btn-danger">delete</a>
                         </td>

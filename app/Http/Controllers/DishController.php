@@ -28,15 +28,25 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        return view('admin.dishes.create', compact('restaurant'));
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        // dump($restaurant->id);
+        // dd($request->all());
+
+        $formData = $request->all();
+
+        $newDish = new Dish();
+        // aggiungo l' id del ristorante
+        $newDish->restaurant_id = $restaurant->id;
+        $newDish->fill($formData);
+        dd($newDish);
     }
 
     /**
