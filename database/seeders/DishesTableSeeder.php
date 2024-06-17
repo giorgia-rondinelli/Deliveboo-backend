@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Dish;
 use App\functions\Helper;
+use App\Models\Restaurant;
 
 class DishesTableSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class DishesTableSeeder extends Seeder
             foreach ($category as $dishData) {
 
                 $newDish = new Dish();
+                $newDish->restaurant_id = Restaurant::inRandomOrder()->first()->id;
                 $newDish->name = $dishData->name;
                 $newDish->slug = Helper::generateSlug($newDish->name, Dish::class);
                 $newDish->description = $dishData->description;
