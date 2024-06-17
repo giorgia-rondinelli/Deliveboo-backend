@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+
+@dump($restaurant);
+@dd($dishes);
     <div class="mt-4 ms-4">
         <div>
             <h1 class="mb-4">Dishes</h1>
