@@ -9,8 +9,4 @@ class Type extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'image', 'slug'];
-
-    public function restaurants(){
-        return $this->belongsToMany(Restaurant::class);
-    }
 }
