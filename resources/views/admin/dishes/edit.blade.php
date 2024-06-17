@@ -77,7 +77,7 @@
         </div>
     </div>
 @endsection
-{{-- <script>
+<script>
     // Function to show selected image preview
     function showimage(event) {
         const thumb = document.getElementById('thumb');
@@ -141,4 +141,4 @@
         // Return true only if all fields are valid
         return validName && validDescription && validPrice;
     }
-</script> --}}
+</script>

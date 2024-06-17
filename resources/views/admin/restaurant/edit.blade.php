@@ -7,6 +7,15 @@
             <p>restaurant edit</p>
         </div>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div>
             <form id="uploadForm" action="{{ route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -71,7 +80,7 @@
     </div>
 @endsection
 
-<script>
+ <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Seleziona il form
         var form = document.getElementById('uploadForm');

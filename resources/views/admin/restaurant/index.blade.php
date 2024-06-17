@@ -5,13 +5,23 @@
 
 @if(!$restaurant)
     <h1 class="m-3">Registrazione Ristorante</h1>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <form id="uploadForm" class="m-3" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input value="{{ old('name') }}" name="name" id="name" type="text" class="form-control"
-                aria-describedby="emailHelp" required>
+                aria-describedby="emailHelp" >
 
                 <p id="error_name" class="text-danger"></p>
 
@@ -20,7 +30,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Address</label>
             <input value="{{ old('address') }}" name="address" type="text"
-                class="form-control" id="address" aria-describedby="emailHelp" required>
+                class="form-control" id="address" aria-describedby="emailHelp" >
 
                 <p id="error_address" class="text-danger"></p>
         </div>
@@ -28,7 +38,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Partita iva</label>
             <input value="{{ old('p_iva') }}" name="p_iva" type="text" class="form-control"
-            id="p_iva" required>
+            id="p_iva" >
 
             <p id="error_p_iva_0" class="text-danger"></p>
             <p id="error_p_iva_1" class="text-danger"></p>
@@ -95,7 +105,7 @@
 @endif
 @endsection
 
-<script>
+ <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Seleziona il form
         const form = document.getElementById('uploadForm');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RestaurantRequest;
 
 use App\Models\Type;
 
@@ -43,24 +44,24 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RestaurantRequest $request)
     {
         $form_data = $request->all();
 
-        if(array_key_exists('image', $form_data)){
+        if (array_key_exists('image', $form_data)) {
             $imagePath = Storage::put('uploads', $form_data['image']);
             $originalName = $request->file('image')->getClientOriginalName();
             $form_data['image_original_name'] = $originalName;
-            $form_data['image']= $imagePath;
+            $form_data['image'] = $imagePath;
         }
 
-        $form_data['slug'] = Helper::generateSlug($form_data['name'] , Restaurant::class);
+        $form_data['slug'] = Helper::generateSlug($form_data['name'], Restaurant::class);
         $new = new Restaurant();
         $new->user_id = Auth::user()->id;
         $new->fill($form_data);
         $new->save();
 
-        if(array_key_exists('types', $form_data)){
+        if (array_key_exists('types', $form_data)) {
             $new->types()->attach($form_data['types']);
         }
         return redirect()->route('admin.restaurants.index');
@@ -87,30 +88,29 @@ class RestaurantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
         $formData = $request->all();
 
-        if(array_key_exists('image', $formData)){
+        if (array_key_exists('image', $formData)) {
 
             $imagePath = Storage::put('uploads', $formData['image']);
             $originalName = $request->file('image')->getClientOriginalName();
             $formData['image_original_name'] = $originalName;
-            $formData['image']= $imagePath;
-
+            $formData['image'] = $imagePath;
         }
 
-        if ($formData['name']!==$restaurant->name) {
+        if ($formData['name'] !== $restaurant->name) {
             $formData['slug'] = Helper::generateSlug($formData['name'], Restaurant::class);
-        }else{
-            $formData['slug']= $restaurant['slug'];
+        } else {
+            $formData['slug'] = $restaurant['slug'];
         }
 
         $restaurant->update($formData);
 
-        if(array_key_exists('types', $formData)){
+        if (array_key_exists('types', $formData)) {
             $restaurant->types()->sync($formData['types']);
-        }else{
+        } else {
             $restaurant->types()->detach();
         }
 
