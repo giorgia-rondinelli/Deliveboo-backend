@@ -9,13 +9,15 @@
                 </a>
             </li>
 
+            {{-- tolgo la lista dei piatti se non ho il ristorante, facendo riferimento al metodo restaurant( ) dello user di auth --}}
+            @if(Auth::user()->restaurant)
             <li>
                 <a href="{{ route('admin.dishes.index') }}">
                     <i class="fa-solid fa-utensils"></i>
                     <span>Dishes</span>
                 </a>
             </li>
-
+            @endif
             <li>
                 <a href="{{ route('admin.orders.index') }}">
                     <i class="fa-solid fa-list-ul"></i>
