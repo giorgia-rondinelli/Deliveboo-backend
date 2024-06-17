@@ -34,7 +34,7 @@
                 <div class="mb-3 checkbox">
                     <label class="form-label">È visibile</label>
                     <div class="btn-group btn-group-sm" role="group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" value="1" name="is_visible">
+                        <input type="checkbox" class="btn-check" id="btncheck1" name="is_visible">
                         <label class="btn btn-outline-primary" for="btncheck1">È visibile</label>
                     </div>
                 </div>

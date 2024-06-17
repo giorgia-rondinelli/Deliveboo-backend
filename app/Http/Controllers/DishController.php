@@ -71,17 +71,18 @@ class DishController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Dish $dish)
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        return view('admin.dishes.edit', compact('restaurant', 'dish'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        dd($request->all());
     }
 
     /**

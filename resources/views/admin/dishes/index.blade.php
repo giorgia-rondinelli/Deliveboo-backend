@@ -32,7 +32,7 @@
                         <td>
                             <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
-                            <a href="#" class="btn btn-warning">edit</a>
+                            <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">edit</a>
                             <a href="#" class="btn btn-danger">delete</a>
                         </td>
                     </tr>
