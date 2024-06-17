@@ -2,8 +2,6 @@
 
 @section('content')
 
-@dump($restaurant);
-@dd($dishes);
     <div class="mt-4 ms-4">
         <div>
             <h1 class="mb-4">Dishes</h1>
@@ -13,19 +11,22 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">id</th>
+                        <th scope="col">nome</th>
+                        <th scope="col">descrizione</th>
+                        <th scope="col">prezzo</th>
+                        <th scope="col">image</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($dishes as $dish)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row">{{$dish->id}}</th>
+                        <td>{{$dish->name}}</td>
+                        <td>{{$dish->description}}</td>
+                        <td>{{$dish->price}}</td>
+                        <td>{{$dish->image}}</td>
                         <td>
                             <a href="#" class="btn btn-primary">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
@@ -34,6 +35,8 @@
                             <a href="#" class="btn btn-danger">delete</a>
                         </td>
                     </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         </div>
