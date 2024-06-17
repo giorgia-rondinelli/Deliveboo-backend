@@ -9,6 +9,8 @@ class Dish extends Model
 {
     use HasFactory;
 
+
+
     protected $fillable = ([
         'name',
         'slug',
@@ -17,4 +19,11 @@ class Dish extends Model
         'is_visible',
         'image',
     ]);
+
+    public function restaurant(){
+        return $this->belongsTo(Restaurant::class);
+    }
+    public function orders(){
+        return $this->belongsToMany(Order::class);
+    }
 }

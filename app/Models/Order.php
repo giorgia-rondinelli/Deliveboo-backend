@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    // public function dishes(){
-    //     return $this->belongsToMany(Dish::class);
-    // }
+    public function dishes(){
+        return $this->belongsToMany(Dish::class);
+    }
     protected $fillable=['slug','dish_id','total_prices','address','phone_number','name'];
 }
