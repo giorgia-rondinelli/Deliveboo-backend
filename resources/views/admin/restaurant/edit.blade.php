@@ -4,7 +4,7 @@
     <div>
 
         <div>
-            <p>dish edit</p>
+            <p>restaurant edit</p>
         </div>
 
         <div>
