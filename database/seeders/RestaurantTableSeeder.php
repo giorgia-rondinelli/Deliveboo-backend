@@ -24,6 +24,7 @@ class RestaurantTableSeeder extends Seeder
             $newRestaurant->p_iva = $restaurant->p_iva;
             $newRestaurant->image = $restaurant->image;
             $newRestaurant->save();
+            //commento prova
             }
     }
 }
