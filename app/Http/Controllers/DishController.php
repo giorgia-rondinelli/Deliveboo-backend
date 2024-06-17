@@ -82,7 +82,7 @@ class DishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishRequest $request, Dish $dish)
     {
         // dd($request->all());
         // $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
