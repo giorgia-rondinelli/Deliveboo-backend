@@ -18,13 +18,14 @@
                 </a>
             </li>
             @endif
+            @if(Auth::user()->restaurant)
             <li>
                 <a href="{{ route('admin.orders.index') }}">
                     <i class="fa-solid fa-list-ul"></i>
                     <span>Orders</span>
                 </a>
             </li>
-
+            @endif
         </ul>
         <ul class="navbar-nav d-flex justify-content-center align-items-center pb-4">
             <li class="nav-item">

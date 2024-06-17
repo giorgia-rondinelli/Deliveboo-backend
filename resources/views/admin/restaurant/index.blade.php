@@ -70,6 +70,7 @@
     <p>Non ci sono immagini</p>
     @endif
 
+    @if($restaurant->type)
     <ul>
         @foreach ($restaurant->types as $type)
         <li>
@@ -77,6 +78,10 @@
         </li>
         @endforeach
     </ul>
+    @else
+    <p>Questo ristoraante è fuori dal comune!!!</p>
+
+    @endif
 
 
     <a href="{{ route('admin.restaurants.edit', $restaurant) }}" class="btn btn-warning">Edit</a>
