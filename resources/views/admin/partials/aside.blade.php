@@ -1,5 +1,5 @@
 <aside>
-    <div>
+    <div class="d-flex flex-column justify-content-between h-100">
         <ul>
 
             <li>
@@ -23,6 +23,17 @@
                 </a>
             </li>
 
+        </ul>
+        <ul class="navbar-nav d-flex justify-content-center align-items-center pb-4">
+            <li class="nav-item">
+                <a class="nav-link text-capitalize fs-3 fw-bold" href="#">{{ Auth::user()->name }}</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-dark p_log-out text-light"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </form>
+            </li>
         </ul>
     </div>
 </aside>

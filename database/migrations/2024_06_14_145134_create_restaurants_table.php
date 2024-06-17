@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug', 40);
             $table->string('address', 100);
             $table->string('p_iva', 11);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -23,7 +23,9 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
 
-        return view('admin.restaurant.index', compact('restaurant'));
+        $types = Type::all();
+
+        return view('admin.restaurant.index', compact('restaurant', 'types'));
         // dd($restaurant);
 
 
@@ -43,7 +45,25 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+
+        if(array_key_exists('image', $form_data)){
+            $imagePath = Storage::put('uploads', $form_data['image']);
+            $originalName = $request->file('image')->getClientOriginalName();
+            $form_data['image_original_name'] = $originalName;
+            $form_data['image']= $imagePath;
+        }
+
+        $form_data['slug'] = Helper::generateSlug($form_data['name'] , Restaurant::class);
+        $new = new Restaurant();
+        $new->user_id = Auth::user()->id;
+        $new->fill($form_data);
+        $new->save();
+
+        if(array_key_exists('types', $form_data)){
+            $new->types()->attach($form_data['types']);
+        }
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
@@ -91,11 +111,10 @@ class RestaurantController extends Controller
         if(array_key_exists('types', $formData)){
             $restaurant->types()->sync($formData['types']);
         }else{
-
             $restaurant->types()->detach();
         }
 
-        return redirect()->route('admin.restaurants.index', $restaurant);
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
@@ -104,6 +123,6 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $restaurant->delete();
-        return redirect()->route('admin')->with('success', 'Progetto eliminato correttamente');
+        return redirect()->route('admin.restaurants.index')->with('success', 'Progetto eliminato correttamente');
     }
 }

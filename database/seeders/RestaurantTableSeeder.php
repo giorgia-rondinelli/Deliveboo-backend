@@ -24,7 +24,6 @@ class RestaurantTableSeeder extends Seeder
             $newRestaurant->slug = Helper::generateSlug($newRestaurant->name, Restaurant::class);
             $newRestaurant->address = $restaurant->address;
             $newRestaurant->p_iva = $restaurant->p_iva;
-            $newRestaurant->image = $restaurant->image;
             $newRestaurant->save();
             $i++;
             }
