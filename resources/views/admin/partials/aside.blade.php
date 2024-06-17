@@ -3,7 +3,7 @@
         <ul>
 
             <li>
-                <a href="{{ route('admin.home') }}">
+                <a href="{{ route('admin.restaurants.index') }}">
                     <i class="fa-solid fa-house-chimney"></i>
                     <span>Home</span>
                 </a>
