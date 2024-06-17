@@ -1,0 +1,12 @@
+[
+    { "name": "italiano", "image": false },
+    { "name": "francese", "image": false },
+    { "name": "steakhouse", "image": false },
+    { "name": "giapponese", "image": false },
+    { "name": "cinese", "image": false },
+    { "name": "messicano", "image": false },
+    { "name": "indiano", "image": false },
+    { "name": "vegano", "image": false },
+    { "name": "pesce", "image": false },
+    { "name": "fastfood", "image": false }
+]
