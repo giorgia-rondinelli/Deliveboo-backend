@@ -12,7 +12,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        return view('admin.dishis.index');
+        return view('admin.dishes.index');
     }
 
     /**
@@ -36,7 +36,7 @@ class DishController extends Controller
      */
     public function show(string $id)
     {
-        // return view('admin.dishis.show');
+        // return view('admin.dishes.show');
     }
 
     /**

@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])
                 -> name('admin.')
                 -> group(function (){
                     Route::get('/', [DashboardController::class, 'index'])->name('home');
-                    Route::resource('dishis', DishController::class);
+                    Route::resource('dishes', DishController::class);
                     Route::resource('orders', OrderController::class);
                 });
 

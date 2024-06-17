@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="ms-5">
+    <div class="mt-4 ms-4">
         <div>
             <h1>Nome ristorante</h1>
         </div>
