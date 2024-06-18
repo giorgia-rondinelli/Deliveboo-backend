@@ -23,7 +23,7 @@ class RestaurantRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:30',
-            'address' => 'required|min:20|max:100',
+            'address' => 'required|min:5|max:100',
             'p_iva' => 'required|numeric',
 
         ];
