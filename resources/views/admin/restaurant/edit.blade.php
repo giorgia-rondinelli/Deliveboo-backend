@@ -22,7 +22,7 @@
                 @method('PUT')
                 {{-- dish name --}}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Name <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input value="{{ old('name', $restaurant->name) }}" name="name" type="text" class="form-control"
                         id="name" aria-describedby="emailHelp">
 
@@ -31,7 +31,7 @@
 
                 {{-- description --}}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Address</label>
+                    <label for="name" class="form-label">Address <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input value="{{ old('address', $restaurant->address) }}" name="address" type="text"
                         class="form-control" id="address" aria-describedby="emailHelp">
 
@@ -40,7 +40,7 @@
 
                 {{-- price --}}
                 <div class="mb-3">
-                    <label for="price" class="form-label">Partita iva</label>
+                    <label for="price" class="form-label">Partita iva <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input value="{{ old('p_iva', $restaurant->p_iva) }}" name="p_iva" type="text" class="form-control"
                         id="p_iva">
 
@@ -109,10 +109,10 @@
         let validAddress = true;
         let validPIva = true;
 
-        const errorNameText1 = 'Il nome deve contenere almeno 3 caratteri';
+        const errorNameText1 = 'Il nome deve contenere almeno un carattere';
         const errorNameText2 = 'Il nome può contenere massimo 30 caratteri';
 
-        const errorAddressText1 = 'L\'indirizzo deve contenere almeno 20 caratteri';
+        const errorAddressText1 = 'L\'indirizzo deve contenere almeno 5 caratteri';
         const errorAddressText2 = 'L\'indirizzo può contenere massimo 100 caratteri';
 
         const errorPIvaText1 = 'La partita IVA deve contenere 11 caratteri';
@@ -124,14 +124,14 @@
         errorPIvaLength.innerHTML = '';
         errorPIvaNan.innerHTML = '';
 
-        if (name.length < 3 || name.length > 30) {
+        if (name.length < 1 || name.length > 30) {
             validName = false;
-            errorName.innerHTML = name.length < 3 ? errorNameText1 : errorNameText2;
+            errorName.innerHTML = name.length < 1 ? errorNameText1 : errorNameText2;
         }
 
-        if (address.length < 20 || address.length > 100) {
+        if (address.length < 5 || address.length > 100) {
             validAddress = false;
-            errorAddress.innerHTML = address.length < 20 ? errorAddressText1 : errorAddressText2;
+            errorAddress.innerHTML = address.length < 5 ? errorAddressText1 : errorAddressText2;
         }
 
         if (pIva.length !== 11 || isNaN(pIva)) {
