@@ -49,12 +49,16 @@
                 <input type="checkbox" value="{{ $type->id }}" name="types[]"
                     @if (($errors->any() && in_array($type->id, old('types', []))))
                     checked
-                    @endif class="btn-check myType " id="type{{ $type->id }}"
+                    @endif
+
+                    class="btn-check type-checkbox"
+
+                    id="type{{ $type->id }}"
                     autocomplete="off">
                 <label class="btn btn-outline-primary" for="type{{ $type->id }}">{{ $type->name }}</label>
             @endforeach
-            <p id="error_type" class="text-danger"></p>
         </div>
+        <p id="error_type" class="text-danger"></p>
 
         <div class="mb-3">
             <label for="image" class="form-label">immagine</label>
@@ -106,7 +110,7 @@
 @endif
 @endsection
 
- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Seleziona il form
         const form = document.getElementById('uploadForm');
@@ -121,27 +125,38 @@
         });
     });
 
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const checkboxes = document.querySelectorAll('.type-checkbox');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', () => {
+                checkbox.classList.toggle('type_checked', checkbox.checked);
+            });
+        });
+    });
+
     function validateForm() {
         const name = document.getElementById('name').value.trim();
         const address = document.getElementById('address').value.trim();
         const pIva = document.getElementById('p_iva').value.trim();
-        const type = document.querySelectorAll('.myType').checked;
-        console.log(type);
+        const typeChecked = document.querySelectorAll('.type_checked').length;
+
 
 
         const errorName = document.getElementById('error_name');
         const errorAddress = document.getElementById('error_address');
         const errorPIvaLength = document.getElementById('error_p_iva_0');
         const errorPIvaNan = document.getElementById('error_p_iva_1');
-        // const errorType =document.getElementById('error_type');
+        const errorType =document.getElementById('error_type');
 
         let validName = true;
         let validAddress = true;
         let validPIva = true;
-        // let valideType = true;
+        let valideType = true;
 
 
-        const errorNameText1 = 'Il nome deve contenere almeno un carattere';
+        const errorNameText1 = 'Il nome deve contenere almeno 3 caratteri';
         const errorNameText2 = 'Il nome può contenere massimo 30 caratteri';
 
         const errorAddressText1 = 'L\'indirizzo deve contenere almeno 5 caratteri';
@@ -150,7 +165,7 @@
         const errorPIvaText1 = 'La partita IVA deve contenere 11 caratteri';
         const errorPIvaText2 = 'La partita IVA deve contenere solo numeri';
 
-        // const errorTypeText = 'Deve esserci almeno un type selezionato';
+        const errorTypeText = 'Deve esserci almeno un type selezionato';
 
 
         // Resetta i messaggi di errore
@@ -158,13 +173,12 @@
         errorAddress.innerHTML = '';
         errorPIvaLength.innerHTML = '';
         errorPIvaNan.innerHTML = '';
+        errorType.innerHTML = '';
 
-        // errorType.innerHTML = '';
 
-
-        if (name.length < 1 || name.length > 30) {
+        if (name.length < 3 || name.length > 30) {
             validName = false;
-            errorName.innerHTML = name.length < 1 ? errorNameText1 : errorNameText2;
+            errorName.innerHTML = name.length < 3 ? errorNameText1 : errorNameText2;
         }
 
         if (address.length < 5 || address.length > 100) {
@@ -184,13 +198,12 @@
             }
         }
 
-        // if(type.length <1 ){
-        //     valideType = false;
-        //     errorType.innerHTML=errorTypeText;
-
-        // }
+        if(typeChecked === 0 ){
+            valideType = false;
+            errorType.innerHTML=errorTypeText;
+        }
 
         // Restituisci true solo se tutti i campi sono validi
-        return validName && validAddress && validPIva;
+        return validName && validAddress && validPIva && valideType;
     }
 </script>
