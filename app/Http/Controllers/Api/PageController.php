@@ -19,7 +19,7 @@ class PageController extends Controller
         return response()->json($types);
     }
     public function dishes(){
-        $dishes=Dish::with('restaurants')->get();
+        $dishes=Dish::with('restaurant')->get();
         return response()->json($dishes);
     }
 }
