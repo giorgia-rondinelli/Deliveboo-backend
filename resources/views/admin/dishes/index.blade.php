@@ -13,7 +13,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">id</th>
+
                         <th scope="col">nome</th>
                         <th scope="col">descrizione</th>
                         <th scope="col">prezzo</th>
@@ -24,8 +24,8 @@
                 <tbody>
                     @foreach ($dishes as $dish)
                     <tr>
-                        <th scope="row">{{$dish->id}}</th>
-                        <td>{{$dish->name}}</td>
+
+                        <td scope="row">{{$dish->name}}</td>
                         <td>{{$dish->description}}</td>
                         <td>{{$dish->price}}</td>
                         <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}" style="height: 100px"> </td>
