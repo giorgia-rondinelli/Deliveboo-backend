@@ -5,9 +5,9 @@
     <div class="mt-4 ms-4">
         <div class="d-flex">
             <h1 class="mb-4">Dishes</h1>
-            <a href="{{route('admin.dishes.create')}}" class="btn btn-success">create</a>
 
         </div>
+        <a href="{{route('admin.dishes.create')}}" class="btn btn-success">create</a>
 
         <div>
             <table class="table">
@@ -28,12 +28,12 @@
                         <td>{{$dish->name}}</td>
                         <td>{{$dish->description}}</td>
                         <td>{{$dish->price}}</td>
-                        <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.png') }}" style="height: 100px" </td>
+                        <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}" style="height: 100px"> </td>
                         <td>
-                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary">show</a>
+                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary ">show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
                             <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">edit</a>
-                            <form action="{{route('admin.dish.destroy', $dish)}}" method="post">
+                            <form class="d-inline-block" action="{{route('admin.dish.destroy', $dish)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">delete</button>
