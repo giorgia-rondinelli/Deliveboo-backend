@@ -82,7 +82,11 @@ class RestaurantController extends Controller
     {
 
         $types = Type::all();
-        return view('admin.restaurant.edit', compact('restaurant', 'types'));
+        if ($restaurant->user_id !== Auth::user()->id) {
+            return redirect()->route('admin.restaurants.index');
+        } else {
+            return view('admin.restaurant.edit', compact('restaurant', 'types'));
+        }
     }
 
     /**
