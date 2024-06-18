@@ -80,7 +80,7 @@
     <p>Non ci sono immagini</p>
     @endif
 
-    @if($restaurant->type)
+    @if($restaurant->types)
     <ul>
         @foreach ($restaurant->types as $type)
         <li>
