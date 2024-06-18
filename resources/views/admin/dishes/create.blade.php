@@ -30,14 +30,15 @@
                 {{-- descrizione --}}
                 <div class="mb-3">
                     <label for="description" class="form-label">Descrizione </label>
-                    <textarea name="description" class="form-control me-2" id="description">Descrizione</textarea>
+                    <textarea name="description" class="form-control me-2" id="description" placeholder="Descrizione"></textarea>
 
                 </div>
 
                 {{-- prezzo --}}
                 <div class="mb-3">
                     <label for="price" class="form-label">Prezzo <i class='fa-solid fa-star-of-life text-danger'></i></label>
-                    <input name="price" type="number" class="form-control" id="price">
+
+                    <input class="form-control" type="number" id="price" name="price" step="0.01"  />
                     <p id="error_price" class="text-danger"></p>
                 </div>
 
@@ -125,7 +126,7 @@
 
 
 
-        if (isNaN(parseFloat(price)) || !isFinite(price)) {
+        if (isNaN(parseFloat(price)) ) {
             validPrice = false;
             errorPrice.innerHTML = errorPriceText1;
         }
