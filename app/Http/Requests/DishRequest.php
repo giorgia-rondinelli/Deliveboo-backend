@@ -23,7 +23,7 @@ class DishRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:30',
-            'description' => 'required',
+
             'price' => 'required|numeric',
         ];
     }
@@ -35,7 +35,7 @@ class DishRequest extends FormRequest
             'name.min' => 'Il nome deve avere almeno :min caratteri',
             'name.max' => 'Il nome deve avere massimo :max caratteri',
 
-            'description.required' => 'La descrizione è un campo obbligatorio',
+
             'price.required' => 'Il prezzo è un campo obbligatorio',
             'price.numeric' => 'Il prezzo deve essere un numero',
 
