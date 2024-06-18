@@ -125,7 +125,7 @@
         const name = document.getElementById('name').value.trim();
         const address = document.getElementById('address').value.trim();
         const pIva = document.getElementById('p_iva').value.trim();
-        const type = document.getElementByClassName('myType');
+        const type = document.querySelectorAll('.myType').checked;
         console.log(type);
 
 
@@ -133,12 +133,12 @@
         const errorAddress = document.getElementById('error_address');
         const errorPIvaLength = document.getElementById('error_p_iva_0');
         const errorPIvaNan = document.getElementById('error_p_iva_1');
-        const errorType =document.getElementById('error_type');
+        // const errorType =document.getElementById('error_type');
 
         let validName = true;
         let validAddress = true;
         let validPIva = true;
-        let valideType = true;
+        // let valideType = true;
 
 
         const errorNameText1 = 'Il nome deve contenere almeno un carattere';
@@ -150,7 +150,7 @@
         const errorPIvaText1 = 'La partita IVA deve contenere 11 caratteri';
         const errorPIvaText2 = 'La partita IVA deve contenere solo numeri';
 
-        const errorTypeText = 'Deve esserci almeno un type selezionato';
+        // const errorTypeText = 'Deve esserci almeno un type selezionato';
 
 
         // Resetta i messaggi di errore
@@ -159,7 +159,7 @@
         errorPIvaLength.innerHTML = '';
         errorPIvaNan.innerHTML = '';
 
-        errorType.innerHTML = '';
+        // errorType.innerHTML = '';
 
 
         if (name.length < 1 || name.length > 30) {
@@ -184,13 +184,13 @@
             }
         }
 
-        if(type.length <1 ){
-            valideType = false;
-            errorType.innerHTML=errorTypeText;
+        // if(type.length <1 ){
+        //     valideType = false;
+        //     errorType.innerHTML=errorTypeText;
 
-        }
+        // }
 
         // Restituisci true solo se tutti i campi sono validi
-        return validName && validAddress && validPIva && valideType;
+        return validName && validAddress && validPIva;
     }
 </script>
