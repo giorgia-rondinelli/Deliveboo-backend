@@ -2,11 +2,6 @@
 
 @section('content')
     <div>
-
-        <div>
-            <p>restaurant edit</p>
-        </div>
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -17,7 +12,7 @@
             </div>
         @endif
         <div>
-            <form id="uploadForm" action="{{ route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
+            <form id="uploadForm" class="m-3 w-75" action="{{ route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 {{-- dish name --}}
@@ -40,7 +35,7 @@
 
                 {{-- price --}}
                 <div class="mb-3">
-                    <label for="price" class="form-label">Partita iva <i class='fa-solid fa-star-of-life text-danger'></i></label>
+                    <label for="price" class="form-label">P. IVA <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input value="{{ old('p_iva', $restaurant->p_iva) }}" name="p_iva" type="text" class="form-control"
                         id="p_iva">
 
@@ -48,12 +43,17 @@
                     <p id="error_p_iva_1" class="text-danger"></p>
                 </div>
 
+                <lable class="mb-2 d-block">Types <i class='fa-solid fa-star-of-life text-danger'></i></lable>
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                     @foreach ($types as $type)
                         <input type="checkbox" value="{{ $type->id }}" name="types[]"
-                            @if (
-                                ($errors->any() && in_array($type->id, old('types', []))) ||
-                                    (!$errors->any() && $restaurant->types->contains($type))) checked @endif class="btn-check type-checkbox" id="type{{ $type->id }}"
+                            @if (($errors->any() && in_array($type->id, old('types', []))) || (!$errors->any() && $restaurant->types->contains($type)))
+                            checked
+                            class="type_checked btn-check type-checkbox"
+                            @else
+                            class="btn-check type-checkbox"
+                            @endif
+                            id="type{{ $type->id }}"
                             autocomplete="off">
                         <label class="btn btn-outline-primary" for="type{{ $type->id }}">{{ $type->name }}</label>
                     @endforeach
@@ -62,26 +62,48 @@
 
                 {{-- img --}}
                 <div class="mb-3">
-                    <label for="image" class="form-label">immagine</label>
+                    <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" placeholder="Another input placeholder"
                         name="image" onchange="showimage(event)">
                 </div>
-                {{-- <img class="thumb w-25" style="height: 350px" id="thumb" alt=""
-                    onerror="src='/img/placeholder.jpg'"> --}}
 
-                <div class="mb-3">
-                    <button class="btn btn-success" type="submit">Send</button>
-                    <button type="reset" class="btn btn-warning">Reset</button>
+                <div class="thumb_img">
+                    <img id="thumb" alt="Thumb Image" src="{{$restaurant->image?asset('storage/'. $restaurant->image):asset('storage/img/placeholder.png') }}">
+                </div>
+
+                <div class="mt-3">
+                    <button class="btn btn-warning" type="submit">Modify</button>
                     <a href="{{route('admin.restaurants.index')}}" class="btn btn-primary">Back</a>
+                    <button type="button" id="delete_btn" class="btn btn-danger ">Delete</button>
                 </div>
 
             </form>
+            <form id="delete_form" class="mt-3 d-inline-block" action="{{route('admin.restaurants.destroy', $restaurant)}}" method="post">
+                @csrf
+                @method('DELETE')
+            </form>
         </div>
 
-    </div>
+    </>
 @endsection
 
 <script>
+
+    function showimage(event) {
+            const thumb = document.getElementById('thumb');
+            thumb.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('delete_btn');
+        const form = document.getElementById('delete_form');
+
+        btn.addEventListener('click', function(event) {
+            confirm('Are you sure you whant delete this restaurant?')
+            form.submit();
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         // Seleziona il form
         var form = document.getElementById('uploadForm');
