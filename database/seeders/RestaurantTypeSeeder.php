@@ -14,10 +14,29 @@ class RestaurantTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i = 0; $i < 40; $i++){
-            $restaurant = Restaurant::inrandomOrder()->first();
+        $usedCombinations = [];
+        $restaurants = Restaurant::all();
 
-            $type_id = Type::inrandomOrder()->first()->id;
+        foreach($restaurants as $restaurant){
+            $type_id = Type::inRandomOrder()->first()->id;
+
+            $combinationKey = $restaurant->id . '-' . $type_id;
+
+            $usedCombinations[$combinationKey] = true;
+
+            $restaurant->types()->attach($type_id);
+        }
+
+        for ($i = 0; $i < 35; $i++) {
+            do {
+                $restaurant = Restaurant::inRandomOrder()->first();
+                $type_id = Type::inRandomOrder()->first()->id;
+
+                $combinationKey = $restaurant->id . '-' . $type_id;
+
+            } while (isset($usedCombinations[$combinationKey]) || $restaurant->types->count() === 3);
+
+            $usedCombinations[$combinationKey] = true;
 
             $restaurant->types()->attach($type_id);
         }
