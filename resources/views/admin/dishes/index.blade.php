@@ -7,17 +7,18 @@
             <h1 class="mb-4">Dishes</h1>
 
         </div>
-        <a href="{{route('admin.dishes.create')}}" class="btn btn-success">create</a>
+        <a href="{{route('admin.dishes.create')}}" class="btn btn-success">Create</a>
 
         <div>
             <table class="table">
                 <thead>
                     <tr>
 
-                        <th scope="col">nome</th>
-                        <th scope="col">descrizione</th>
-                        <th scope="col">prezzo</th>
-                        <th scope="col">image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Is Visible</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -28,15 +29,16 @@
                         <td scope="row">{{$dish->name}}</td>
                         <td>{{$dish->description}}</td>
                         <td>{{$dish->price}}</td>
+                        <td><h5><span class="badge text-bg-primary">{{ $dish->is_visible ? 'Visible' : 'Unvisible' }}</span></h5></td>
                         <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}" style="height: 100px"> </td>
                         <td>
-                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary ">show</a>
+                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary ">Show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
-                            <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">edit</a>
-                            <form onsubmit="return confirm('sicuro di voler eliminare?')" class="d-inline-block" action="{{route('admin.dish.destroy', $dish)}}" method="post">
+                            <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">Edit</a>
+                            <form onsubmit="return confirm('Are you sure you whant delete this dish?')" class="d-inline-block" action="{{route('admin.dish.destroy', $dish)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger" type="submit">delete</button>
+                                <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>

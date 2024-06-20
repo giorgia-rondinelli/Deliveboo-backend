@@ -17,7 +17,7 @@
 
 
         <div>
-            <form id="uploadForm" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
+            <form id="uploadForm" class="m-3 w-75" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 {{-- @method('POST') --}}
                 {{-- nome del piatto --}}
@@ -43,7 +43,7 @@
                 </div>
 
                 {{-- visibilità --}}
-                  <div class="mb-3">
+                <div class="mb-3">
                     <label class="form-label">Visibilità</label>
                     <div class="btn-group btn-group-sm" role="group">
                         <input type="radio" class="btn-check" id="btncheck1" value="1" checked name="is_visible">
@@ -60,7 +60,9 @@
                     <label for="image" class="form-label">Immagine</label>
                     <input type="file" class="form-control" id="image" name="image" onchange="showimage(event)">
                 </div>
-                <img id="thumb" alt="Anteprima Immagine" style="max-width: 100%; height: auto;">
+                <div class="thumb_img">
+                    <img id="thumb" alt="Thumb Image">
+                </div>
 
                 {{-- messaggio di errore --}}
                 <div id="error-message" class="alert alert-danger d-none" role="alert">
@@ -68,7 +70,8 @@
                 </div>
 
                 {{-- pulsante di invio --}}
-                <button type="submit" class="btn btn-primary">Crea</button>
+                <button type="submit" class="btn btn-success mt-3">Crea</button>
+                <a href="{{route('admin.dishes.index')}}" class="btn btn-primary mt-3">Back</a>
             </form>
         </div>
     </div>

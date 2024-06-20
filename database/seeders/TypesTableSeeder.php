@@ -26,9 +26,6 @@ class TypesTableSeeder extends Seeder
             $new_type->image = $type->image;
             $new_type->save();
 
-
-
-
         }
     }
 }

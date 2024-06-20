@@ -15,7 +15,7 @@
                 </ul>
             </div>
         @endif
-    <form id="uploadForm" class="m-3" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
+    <form id="uploadForm" class="m-3 w-75" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">Partita iva <i class='fa-solid fa-star-of-life text-danger'></i></label>
+            <label for="price" class="form-label">P. IVA <i class='fa-solid fa-star-of-life text-danger'></i></label>
             <input value="{{ old('p_iva') }}" name="p_iva" type="text" class="form-control"
             id="p_iva" >
 
@@ -44,6 +44,7 @@
             <p id="error_p_iva_1" class="text-danger"></p>
         </div>
 
+        <lable class="mb-2 d-block">Types <i class='fa-solid fa-star-of-life text-danger'></i></lable>
         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
             @foreach ($types as $type)
                 <input type="checkbox" value="{{ $type->id }}" name="types[]"
@@ -61,31 +62,37 @@
         <p id="error_type" class="text-danger"></p>
 
         <div class="mb-3">
-            <label for="image" class="form-label">immagine</label>
+            <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image" placeholder="Another input placeholder"
                 name="image" onchange="showimage(event)">
         </div>
 
-        <div class="mb-3">
-            <button class="btn btn-success" type="submit">Send</button>
-            <button type="reset" class="btn btn-warning">Reset</button>
+        <div class="thumb_img">
+            <img id="thumb" alt="Thumb Image">
+        </div>
+
+        <div class="mt-3">
+            <button class="btn btn-success" type="submit">Register</button>
         </div>
     </form>
 @else
 <div class="m-3">
-    <h1>{{ $restaurant->name }}</h1>
+    <h1 class="fw-bold">{{ $restaurant->name }}</h1>
 
-    <h2>address: {{ $restaurant->address }}</h2>
+    <h2>Address: {{ $restaurant->address }}</h2>
 
-    <h5>partita iva: {{ $restaurant->p_iva }}</h5>
+    <h5 class="mt-3">P. IVA: {{ $restaurant->p_iva }}</h5>
 
     @if ($restaurant->image)
-    <img class="img-fluid w-50 " src="{{asset('storage/'.$restaurant->image)}}" alt="{{$restaurant->name}}" onerror="this.src='/img/placeholder.jpg'">
+    <div class="thumb_img mt-3">
+        <img class="img-fluid" src="{{asset('storage/'.$restaurant->image)}}" alt="{{$restaurant->name}}" onerror="this.src='/img/placeholder.jpg'">
+    </div>
     @else
-    <p>Non ci sono immagini</p>
+    <p class="mt-3">No image</p>
     @endif
 
     @if($restaurant->types)
+    <h4 class="mt-3">Types</h4>
     <ul>
         @foreach ($restaurant->types as $type)
         <li>
@@ -101,7 +108,7 @@
 
     <a href="{{ route('admin.restaurants.edit', $restaurant) }}" class="btn btn-warning">Edit</a>
 
-    <form onsubmit="return confirm('sicuro di voler eliminare?')" class="mt-3 d-inline-block" action="{{route('admin.restaurants.destroy', $restaurant)}}" method="post">
+    <form onsubmit="return confirm('Are you sure you whant delete this restaurant?')" class="mt-3 d-inline-block" action="{{route('admin.restaurants.destroy', $restaurant)}}" method="post">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger ">Delete</button>
@@ -111,6 +118,12 @@
 @endsection
 
 <script>
+
+    function showimage(event) {
+            const thumb = document.getElementById('thumb');
+            thumb.src = URL.createObjectURL(event.target.files[0]);
+        }
+
     document.addEventListener('DOMContentLoaded', function() {
         // Seleziona il form
         const form = document.getElementById('uploadForm');
