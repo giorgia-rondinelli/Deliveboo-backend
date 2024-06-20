@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="thumb_img">
-                    <img id="thumb" alt="Thumb Image" src="{{$restaurant->image?asset('storage/'. $restaurant->image):asset('storage/img/placeholder.png') }}">
+                    <img id="thumb" alt="Thumb Image" src="{{$restaurant->image?asset('storage/'. $restaurant->image):asset('storage/img/placeholder.jpg') }}">
                 </div>
 
                 <div class="mt-3">
