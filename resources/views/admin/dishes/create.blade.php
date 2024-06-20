@@ -61,7 +61,7 @@
                     <input type="file" class="form-control" id="image" name="image" onchange="showimage(event)">
                 </div>
                 <div class="thumb_img">
-                    <img id="thumb" alt="Thumb Image">
+                    <img id="thumb" class="d-none" alt="Thumb Image">
                 </div>
 
                 {{-- messaggio di errore --}}
@@ -82,6 +82,7 @@
     // Function to show selected image preview
     function showimage(event) {
         const thumb = document.getElementById('thumb');
+        thumb.classList.remove('d-none');
         thumb.src = URL.createObjectURL(event.target.files[0]);
     }
 

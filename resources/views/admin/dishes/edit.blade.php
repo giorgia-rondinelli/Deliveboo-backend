@@ -57,7 +57,7 @@
                     <input type="file" class="form-control" id="image" name="image" onchange="showimage(event)">
                 </div>
                 <div class="thumb_img">
-                    <img id="thumb" alt="Thumb Image"src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.png') }}">
+                    <img id="thumb" alt="Thumb Image" src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.png') }}">
                 </div>
 
                 {{-- pulsante di invio --}}

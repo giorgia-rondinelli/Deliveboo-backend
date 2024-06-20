@@ -68,8 +68,9 @@
         </div>
 
         <div class="thumb_img">
-            <img id="thumb" alt="Thumb Image">
+            <img id="thumb" class="d-none" alt="Thumb Image">
         </div>
+
 
         <div class="mt-3">
             <button class="btn btn-success" type="submit">Register</button>
@@ -121,6 +122,7 @@
 
     function showimage(event) {
             const thumb = document.getElementById('thumb');
+            thumb.classList.remove('d-none');
             thumb.src = URL.createObjectURL(event.target.files[0]);
         }
 
