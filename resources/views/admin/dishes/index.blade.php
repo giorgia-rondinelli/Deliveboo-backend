@@ -27,10 +27,10 @@
                     <tr>
 
                         <td scope="row">{{$dish->name}}</td>
-                        <td>{{$dish->description}}</td>
+                        <td> <p class="description_size">{{$dish->description}}</p></td>
                         <td>{{$dish->price}}</td>
                         <td><h5><span class="badge text-bg-primary">{{ $dish->is_visible ? 'Visible' : 'Unvisible' }}</span></h5></td>
-                        <td> <img src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}" style="height: 100px"> </td>
+                        <td> <img class="image_size" src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}"> </td>
                         <td>
                             <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary ">Show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}

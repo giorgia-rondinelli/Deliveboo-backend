@@ -35,3 +35,19 @@
     }
 }
 
+.description_size{
+display: block;
+max-width: 200px;
+overflow: auto;
+height: 100px;
+}
+
+.image_size{
+aspect-ratio: 14/9;
+width: 180px;
+object-fit: cover;
+}
+
+
+
+
