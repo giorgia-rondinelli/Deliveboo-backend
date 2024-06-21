@@ -67,7 +67,12 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view('admin.dishes.show', compact('dish'));
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        if ($dish->restaurant_id !== Auth::user()->restaurant->id) {
+            return redirect()->route('admin.dishes.index');
+        } else {
+            return view('admin.dishes.show', compact('dish'));
+        }
     }
 
     /**

@@ -18,6 +18,10 @@
               <form id="uploadForm" class="m-3 w-75" action="{{ route('admin.dishes.update', $dish)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
+                <h2 id="dish_name" class="fw-bold">{{$dish->name}}</h2>
+
+                <h6 class="my-3"><i class='fa-solid fa-star-of-life text-danger'></i> Required field</h6>
                 {{-- nome del piatto --}}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name <i class='fa-solid fa-star-of-life text-danger'></i></label>
@@ -65,7 +69,7 @@
                 <a href="{{route('admin.dishes.index')}}" class="btn btn-primary mt-3">Back</a>
                 <button type="button" id="delete_btn" class="btn btn-danger mt-3">Delete</button>
             </form>
-            <form id="delete_form" class="d-inline-block mt-3" action="{{route('admin.dish.destroy', $dish)}}" method="post">
+            <form id="delete_form" class="d-inline-block mt-3" action="{{route('admin.dishes.destroy', $dish)}}" method="post">
                 @csrf
                 @method('DELETE')
             </form>
@@ -82,10 +86,12 @@
     document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById('delete_btn');
         const form = document.getElementById('delete_form');
+        const name = document.getElementById('dish_name').innerHTML;
 
         btn.addEventListener('click', function(event) {
-            confirm('Are you sure you whant delete this dish?')
-            form.submit();
+            if(confirm('Are you sure you want delete this dish \'' + name +'\' ?')){
+                form.submit();
+            }
         });
     });
 
@@ -118,9 +124,10 @@
 
         let validPrice = true;
 
-        const errorNameText1 = 'Il nome deve contenere almeno 3 caratteri';
+        const errorNameText1 = 'The name must contain at least 3 characters';
 
-        const errorPriceText1 = 'Il prezzo deve essere un numero valido';
+        const errorPriceText1 = 'The price must be a valid number';
+
 
         // Reset error messages
         errorName.innerHTML = '';

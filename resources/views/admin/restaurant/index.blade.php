@@ -17,6 +17,7 @@
         @endif
     <form id="uploadForm" class="m-3 w-75" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <h6 class="my-3"><i class='fa-solid fa-star-of-life text-danger'></i> Required field</h6>
 
         <div class="mb-3">
             <label for="name" class="form-label">Name <i class='fa-solid fa-star-of-life text-danger'></i></label>
@@ -109,7 +110,7 @@
 
     <a href="{{ route('admin.restaurants.edit', $restaurant) }}" class="btn btn-warning">Edit</a>
 
-    <form onsubmit="return confirm('Are you sure you whant delete this restaurant?')" class="mt-3 d-inline-block" action="{{route('admin.restaurants.destroy', $restaurant)}}" method="post">
+    <form onsubmit="return confirm('Are you sure you want delete your restaurant?')" class="mt-3 d-inline-block" action="{{route('admin.restaurants.destroy', $restaurant)}}" method="post">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger ">Delete</button>
@@ -171,16 +172,16 @@
         let valideType = true;
 
 
-        const errorNameText1 = 'Il nome deve contenere almeno 3 caratteri';
-        const errorNameText2 = 'Il nome può contenere massimo 30 caratteri';
+        const errorNameText1 = 'The name must contain at least 3 characters';
+        const errorNameText2 = 'The name can contain a maximum of 30 characters';
 
-        const errorAddressText1 = 'L\'indirizzo deve contenere almeno 5 caratteri';
-        const errorAddressText2 = 'L\'indirizzo può contenere massimo 100 caratteri';
+        const errorAddressText1 = 'The address must contain at least 5 characters';
+        const errorAddressText2 = 'The address can contain a maximum of 100 characters';
 
-        const errorPIvaText1 = 'La partita IVA deve contenere 11 caratteri';
-        const errorPIvaText2 = 'La partita IVA deve contenere solo numeri';
+        const errorPIvaText1 = 'The VAT number must contain 11 characters';
+        const errorPIvaText2 = 'The VAT number must contain only numbers';
 
-        const errorTypeText = 'Deve esserci almeno un type selezionato';
+        const errorTypeText = 'At least one type must be selected';
 
 
         // Resetta i messaggi di errore

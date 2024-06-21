@@ -28,14 +28,14 @@
 
                         <td scope="row">{{$dish->name}}</td>
                         <td> <p class="description_size">{{$dish->description}}</p></td>
-                        <td>{{$dish->price}}</td>
+                        <td>&euro;{{$dish->price}}</td>
                         <td><h5><span class="badge text-bg-primary">{{ $dish->is_visible ? 'Visible' : 'Unvisible' }}</span></h5></td>
                         <td> <img class="image_size" src="{{$dish->image?asset('storage/'. $dish->image):asset('storage/img/placeholder.jpg') }}"> </td>
                         <td>
-                            <a href="{{route('admin.dish.show', $dish)}}" class="btn btn-primary ">Show</a>
+                            <a href="{{route('admin.dishes.show', $dish)}}" class="btn btn-primary ">Show</a>
                             {{-- {{ route('admin.dishes.show') }} --}}
-                            <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning">Edit</a>
-                            <form onsubmit="return confirm('Are you sure you whant delete this dish?')" class="d-inline-block" action="{{route('admin.dish.destroy', $dish)}}" method="post">
+                            <a href="{{route('admin.dishes.edit', $dish)}}" class="btn btn-warning">Edit</a>
+                            <form onsubmit="return confirm('Are you sure you want delete this dish \'{{$dish->name}}\' ?')" class="d-inline-block" action="{{route('admin.dishes.destroy', $dish)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>

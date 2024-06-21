@@ -24,7 +24,8 @@ class PageController extends Controller
         return response()->json($restaurants);
     }
     public function types(){
-        $types=Type::with('restaurants')->get();
+        $types=Type::orderBy('name')->with('restaurants')->get();
+
         return response()->json($types);
     }
     public function dishes(){

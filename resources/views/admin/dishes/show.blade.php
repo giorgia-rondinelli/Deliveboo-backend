@@ -32,9 +32,9 @@
             <h3><span class="badge text-bg-primary">{{ $dish->is_visible ? 'Visible' : 'Unvisible' }}</span></h3>
         </div>
 
-        <a href="{{route('admin.dish.edit', $dish)}}" class="btn btn-warning mt-3">Edit</a>
+        <a href="{{route('admin.dishes.edit', $dish)}}" class="btn btn-warning mt-3">Edit</a>
         <a href="{{route('admin.dishes.index')}}" class="btn btn-primary mt-3">Back</a>
-        <form class="d-inline-block mt-3" onsubmit="return confirm('Are you sure you whant delete this dish?')" action="{{route('admin.dish.destroy', $dish)}}" method="post">
+        <form class="d-inline-block mt-3" onsubmit="return confirm('Are you sure you want delete this dish \'{{$dish->name}}\' ?')" action="{{route('admin.dishes.destroy', $dish)}}" method="post">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger mt-3" type="submit">Delete</button>

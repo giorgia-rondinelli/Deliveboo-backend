@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <div>
-        <div>
-            <p>Crea piatto</p>
-        </div>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -19,58 +16,54 @@
         <div>
             <form id="uploadForm" class="m-3 w-75" action="{{ route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
+
+                <h6 class="my-3"><i class='fa-solid fa-star-of-life text-danger'></i> Required field</h6>
                 {{-- @method('POST') --}}
                 {{-- nome del piatto --}}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nome <i class='fa-solid fa-star-of-life text-danger'></i></label>
+                    <label for="name" class="form-label">Name <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input name="name" type="text" class="form-control" id="name" >
                     <p id="error_name" class="text-danger"></p>
                 </div>
 
                 {{-- descrizione --}}
                 <div class="mb-3">
-                    <label for="description" class="form-label">Descrizione </label>
-                    <textarea name="description" class="form-control me-2" id="description" placeholder="Descrizione"></textarea>
+                    <label for="description" class="form-label">Description </label>
+                    <textarea name="description" class="form-control me-2" id="description" placeholder="Description"></textarea>
 
                 </div>
 
                 {{-- prezzo --}}
                 <div class="mb-3">
-                    <label for="price" class="form-label">Prezzo <i class='fa-solid fa-star-of-life text-danger'></i></label>
-
+                    <label for="price" class="form-label">Price <i class='fa-solid fa-star-of-life text-danger'></i></label>
                     <input class="form-control" type="number" id="price" name="price" step="0.01"  />
                     <p id="error_price" class="text-danger"></p>
                 </div>
 
                 {{-- visibilità --}}
                 <div class="mb-3">
-                    <label class="form-label">Visibilità</label>
+                    <label class="form-label">Visibility</label>
                     <div class="btn-group btn-group-sm" role="group">
                         <input type="radio" class="btn-check" id="btncheck1" value="1" checked name="is_visible">
-                        <label class="btn btn-outline-primary" for="btncheck1" >Visibile</label>
+                        <label class="btn btn-outline-primary" for="btncheck1" >Visible</label>
 
                         <input type="radio" class="btn-check" id="btncheck2" value="0" name="is_visible" >
-                        <label class="btn btn-outline-primary" for="btncheck2">Non visibile</label>
+                        <label class="btn btn-outline-primary" for="btncheck2">Unvisible</label>
                     </div>
                 </div>
 
 
                 {{-- immagine --}}
                 <div class="mb-3">
-                    <label for="image" class="form-label">Immagine</label>
+                    <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="image" onchange="showimage(event)">
                 </div>
                 <div class="thumb_img">
                     <img id="thumb" class="d-none" alt="Thumb Image">
                 </div>
 
-                {{-- messaggio di errore --}}
-                <div id="error-message" class="alert alert-danger d-none" role="alert">
-                    Si sono verificati errori nei dati inseriti. Per favore, controlla e correggi i campi evidenziati.
-                </div>
-
                 {{-- pulsante di invio --}}
-                <button type="submit" class="btn btn-success mt-3">Crea</button>
+                <button type="submit" class="btn btn-success mt-3">Create</button>
                 <a href="{{route('admin.dishes.index')}}" class="btn btn-primary mt-3">Back</a>
             </form>
         </div>
@@ -116,9 +109,9 @@
         let validName = true;
         let validPrice = true;
 
-        const errorNameText1 = 'Il nome deve contenere almeno 3 caratteri';
+        const errorNameText1 = 'The name must contain at least 3 characters';
 
-        const errorPriceText1 = 'Il prezzo deve essere un numero valido';
+        const errorPriceText1 = 'The price must be a valid number';
 
         // Reset error messages
         errorName.innerHTML = '';
