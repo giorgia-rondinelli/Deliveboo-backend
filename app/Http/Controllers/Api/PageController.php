@@ -19,7 +19,15 @@ class PageController extends Controller
             } else {
                 $restaurant->image = Storage::url("img/placeholder.jpg");
             }
+            foreach($restaurant->dishes as $dish){
+                if ($dish->image) {
+                    $dish->image = Storage::url($dish->image);
+                } else {
+                    $dish->image = Storage::url("img/placeholder.jpg");
+                }
+            }
         }
+
 
         return response()->json($restaurants);
     }
