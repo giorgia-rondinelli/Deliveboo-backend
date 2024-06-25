@@ -69,7 +69,7 @@ class DishController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         if ($dish->restaurant_id !== Auth::user()->restaurant->id) {
-            return redirect()->route('admin.dishes.index');
+            abort(404);
         } else {
             return view('admin.dishes.show', compact('dish'));
         }
@@ -82,7 +82,7 @@ class DishController extends Controller
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         if ($dish->restaurant_id !== Auth::user()->restaurant->id) {
-            return redirect()->route('admin.dishes.index');
+            abort(404);
         } else {
             return view('admin.dishes.edit', compact('restaurant', 'dish'));
         }
