@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PageController;
+use App\Http\Controllers\Api\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ use App\Http\Controllers\Api\PageController;
 Route::get('/restaurants',[PageController::class,'index']);
 Route::get('/types',[PageController::class,'types']);
 Route::get('/dishes',[PageController::class,'dishes']);
+Route::post('/sendOrders', [OrderController::class, 'store']);
