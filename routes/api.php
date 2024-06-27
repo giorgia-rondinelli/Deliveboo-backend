@@ -23,4 +23,4 @@ use App\Http\Controllers\Api\OrderController;
 Route::get('/restaurants',[PageController::class,'index']);
 Route::get('/types',[PageController::class,'types']);
 Route::get('/dishes',[PageController::class,'dishes']);
-Route::post('/send-orders', [OrderController::class, 'store']);
+Route::post('/sendOrders', [OrderController::class, 'store']);
