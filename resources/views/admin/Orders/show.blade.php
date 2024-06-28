@@ -3,7 +3,7 @@
 @section('content')
     <div class="m-3">
         <div>
-            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->created_at }}</h3>
+            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->formatted_created_at}}</h3>
         </div>
 
         <div>
@@ -11,7 +11,7 @@
         </div>
 
         <div>
-            <p><strong>Ordered at:</strong> {{ $orderOne->created_at }}</p>
+            <p><strong>Ordered at:</strong> {{ $orderOne->formatted_created_at }}</p>
         </div>
 
         <div>
@@ -24,11 +24,29 @@
 
         <div>
             <h5 class="fw-bold">Ordered dishes:</h5>
-            <ul>
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dish name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Quantity</th>
+
+                  </tr>
+                </thead>
+                <tbody>
                 @foreach ($orderOne->dishes as $dish)
-                <li>{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}</li>
+                  <tr>
+                    <td>{{ $dish->name }}</td>
+                    <td>{{ $dish->price }}</td>
+                    <td>{{ $dish->pivot->dish_quantity }}</td>
+                  </tr>
                 @endforeach
-            </ul>
+
+
+                </tbody>
+              </table>
         </div>
         <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Back</a>
     </div>

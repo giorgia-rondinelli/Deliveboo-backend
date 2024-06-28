@@ -71,12 +71,12 @@ class OrderController extends Controller
         $orderOne = Order::whereHas('dishes', function ($query) use ($dishIds) {
             $query->whereIn('dishes.id', $dishIds);
         })->with(['dishes' => function ($query) {
-            $query->select('id', 'name')
+            $query->select('id', 'name', 'price')
                     ->withPivot('dish_quantity');
         }])->findOrFail($id);
 
         // Ritorna la vista con l'ordine
-        return view('admin.orders.show', compact('orderOne'));
+        return view('admin.orders.show', compact('orderOne','dishIds'));
     }
 
     /**
