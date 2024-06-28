@@ -5,23 +5,6 @@
         <div>
             <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->formatted_created_at}}</h3>
         </div>
-
-        <div>
-            <p class="fs-4"><strong>Total ammount order:</strong> &euro;{{ $orderOne->total_price }}</p>
-        </div>
-
-        <div>
-            <p><strong>Ordered at:</strong> {{ $orderOne->formatted_created_at }}</p>
-        </div>
-
-        <div>
-            <p><strong>Contact for delivery:</strong> {{ $orderOne->phone_number }}</p>
-        </div>
-
-        <div>
-            <p><strong>Deliver in:</strong> {{ $orderOne->address }}</p>
-        </div>
-
         <div>
             <h5 class="fw-bold">Ordered dishes:</h5>
 
@@ -48,6 +31,23 @@
                 </tbody>
               </table>
         </div>
+
+        <div>
+            <p class="fs-4"><strong>Total ammount order:</strong> &euro;{{ $orderOne->total_price }}</p>
+        </div>
+
+        <div>
+            <p><strong>Ordered at:</strong> {{ $orderOne->formatted_created_at }}</p>
+        </div>
+
+        <div>
+            <p><strong>Contact for delivery:</strong> {{ $orderOne->phone_number }}</p>
+        </div>
+
+        <div>
+            <p><strong>Deliver in:</strong> {{ $orderOne->address }}</p>
+        </div>
+
         <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection
