@@ -10,25 +10,25 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ammount</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Delivery in</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($auht_orders as $order)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row">{{ $order->name }} / {{ $order->created_at }}</th>
+                        <td>&euro;{{ $order->total_price }}</td>
+                        <td>{{ $order->phone_number }}</td>
+                        <td>{{ $order->address }}</td>
                         <td>
-                            <a href="#" class="btn btn-primary">show</a>
-                            {{-- <button class="btn btn-warning">edit</button>
-                        <button class="btn btn-danger">delete</button> --}}
+                            <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary">Show Details</a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

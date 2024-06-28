@@ -1,29 +1,35 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div>
+    <div class="m-3">
         <div>
-            <h5>Order show</h5>
+            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->created_at }}</h3>
         </div>
 
         <div>
-            <p>Total price</p>
+            <p class="fs-4"><strong>Total ammount order:</strong> &euro;{{ $orderOne->total_price }}</p>
         </div>
 
         <div>
-            <p>phone_number</p>
+            <p><strong>Ordered at:</strong> {{ $orderOne->created_at }}</p>
         </div>
 
         <div>
-            <p>address</p>
+            <p><strong>Contact for delivery:</strong> {{ $orderOne->phone_number }}</p>
         </div>
 
         <div>
-            <p>Name</p>
+            <p><strong>Deliver in:</strong> {{ $orderOne->address }}</p>
         </div>
 
         <div>
-            <p>date</p>
+            <h5 class="fw-bold">Ordered dishes:</h5>
+            <ul>
+                @foreach ($orderOne->dishes as $dish)
+                <li>{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}</li>
+                @endforeach
+            </ul>
         </div>
+        <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection

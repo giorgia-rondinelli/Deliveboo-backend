@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\DishController;
 /*
