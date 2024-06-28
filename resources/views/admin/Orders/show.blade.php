@@ -3,7 +3,7 @@
 @section('content')
     <div class="m-3">
         <div>
-            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->created_at }}</h3>
+            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->formatted_created_at}}</h3>
         </div>
 
         <div>
@@ -11,7 +11,7 @@
         </div>
 
         <div>
-            <p><strong>Ordered at:</strong> {{ $orderOne->created_at }}</p>
+            <p><strong>Ordered at:</strong> {{ $orderOne->formatted_created_at }}</p>
         </div>
 
         <div>
