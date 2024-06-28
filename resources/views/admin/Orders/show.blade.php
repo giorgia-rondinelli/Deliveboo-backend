@@ -3,27 +3,33 @@
 @section('content')
     <div>
         <div>
-            <h5>Order show</h5>
+            <h5>{{ $orderOne->id }}</h5>
         </div>
 
         <div>
-            <p>Total price</p>
+            <p>{{ $orderOne->total_price }}</p>
         </div>
 
         <div>
-            <p>phone_number</p>
+            <p>{{ $orderOne->created_at }}</p>
         </div>
 
         <div>
-            <p>address</p>
+            <p>{{ $orderOne->name }}</p>
         </div>
 
         <div>
-            <p>Name</p>
+            <p>
+                @foreach ($orderOne->dishes as $dish)
+                |{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}|
+                @endforeach
+            </p>
         </div>
 
         <div>
-            <p>date</p>
+            <p>{{ $orderOne->id }}</p>
         </div>
+
+        <a href="{{ route('admin.orders.index') }}">Back</a>
     </div>
 @endsection

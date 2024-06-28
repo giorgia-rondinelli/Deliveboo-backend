@@ -28,9 +28,6 @@ class RestaurantController extends Controller
 
         return view('admin.restaurant.index', compact('restaurant', 'types'));
         // dd($restaurant);
-
-
-
     }
 
     /**
