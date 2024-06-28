@@ -1,35 +1,35 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div>
+    <div class="m-3">
         <div>
-            <h5>{{ $orderOne->id }}</h5>
+            <h3 class="fw-bold">{{ $orderOne->name }} / {{ $orderOne->created_at }}</h3>
         </div>
 
         <div>
-            <p>{{ $orderOne->total_price }}</p>
+            <p class="fs-4"><strong>Total ammount order:</strong> &euro;{{ $orderOne->total_price }}</p>
         </div>
 
         <div>
-            <p>{{ $orderOne->created_at }}</p>
+            <p><strong>Ordered at:</strong> {{ $orderOne->created_at }}</p>
         </div>
 
         <div>
-            <p>{{ $orderOne->name }}</p>
+            <p><strong>Contact for delivery:</strong> {{ $orderOne->phone_number }}</p>
         </div>
 
         <div>
-            <p>
+            <p><strong>Deliver in:</strong> {{ $orderOne->address }}</p>
+        </div>
+
+        <div>
+            <h5 class="fw-bold">Ordered dishes:</h5>
+            <ul>
                 @foreach ($orderOne->dishes as $dish)
-                |{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}|
+                <li>{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}</li>
                 @endforeach
-            </p>
+            </ul>
         </div>
-
-        <div>
-            <p>{{ $orderOne->id }}</p>
-        </div>
-
-        <a href="{{ route('admin.orders.index') }}">Back</a>
+        <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection
