@@ -23,7 +23,7 @@
                     @foreach ($auht_orders as $order)
                     <tr>
                         <th scope="row">{{ $order->name }} </th>
-                        <th scope="row">{{ $order->created_at }} </th>
+                        <td>{{ $order->formatted_created_at }} </th>
 
                         <td>&euro;{{ $order->total_price }}</td>
                         <td>{{ $order->phone_number }}</td>
