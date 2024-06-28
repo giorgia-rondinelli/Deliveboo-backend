@@ -12,18 +12,18 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Ammount</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Buyer</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Delivery in</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($auht_orders as $order)
                     <tr>
-                        <th scope="row">{{ $order->id }}</th>
+                        <th scope="row">{{ $order->name }} / {{ $order->created_at }}</th>
                         <td>&euro;{{ $order->total_price }}</td>
-                        <td>{{ $order->created_at }}</td>
-                        <td>{{ $order->name }}</td>
+                        <td>{{ $order->phone_number }}</td>
+                        <td>{{ $order->address }}</td>
                         <td>
                             <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-primary">Show Details</a>
                         </td>
