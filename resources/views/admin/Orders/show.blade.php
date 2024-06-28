@@ -24,11 +24,29 @@
 
         <div>
             <h5 class="fw-bold">Ordered dishes:</h5>
-            <ul>
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dish name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Quantity</th>
+
+                  </tr>
+                </thead>
+                <tbody>
                 @foreach ($orderOne->dishes as $dish)
-                <li>{{ $dish->name }} x {{ $dish->pivot->dish_quantity }}</li>
+                  <tr>
+                    <td>{{ $dish->name }}</td>
+                    <td>{{ $dish->price }}</td>
+                    <td>{{ $dish->pivot->dish_quantity }}</td>
+                  </tr>
                 @endforeach
-            </ul>
+
+
+                </tbody>
+              </table>
         </div>
         <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">Back</a>
     </div>
