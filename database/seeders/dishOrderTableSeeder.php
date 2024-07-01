@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Dish;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Faker\Generator as Faker;
 
 class dishOrderTableSeeder extends Seeder
@@ -15,18 +16,29 @@ class dishOrderTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $dishes = Dish::all();
+   $orders = Order::all();
+    $usedCombinations = [];
 
-        $orders = Order::all();
+    foreach ($orders as $order) {
+        $restaurant = Restaurant::inRandomOrder()->first();
+        $dishes = $restaurant->dishes;
 
-
-        foreach($dishes as $dish){
-            $orderId = Order::inRandomOrder()->first();
-
-            $quantity = $faker->randomDigitNotNull();
-
-            $dish->orders()->attach($orderId, ['dish_quantity' => $quantity]);
+        // Verifica che il ristorante abbia almeno 3 piatti
+        if ($dishes->count() < 3) {
+            continue;
         }
 
+        for ($i = 0; $i < 3; $i++) {
+            do {
+                // Seleziona un piatto casuale dal ristorante
+                $dish = $dishes->random();
+                $combinationKey = $order->id . '-' . $dish->id;
+            } while (isset($usedCombinations[$combinationKey]));
+
+            $quantity = $faker->randomDigitNotNull();
+            $dish->orders()->attach($order->id, ['dish_quantity' => $quantity]);
+            $usedCombinations[$combinationKey] = true;
+        }
+    }
     }
 }
