@@ -3,7 +3,8 @@
 @section('content')
     <div class="mt-4 ms-4">
         <div>
-            <h1 class="mb-4">Orders</h1>
+            <h1 class="mb-4">Orders - ToT:{{count($auht_orders)}}</h1>
+
         </div>
 
         <div>
@@ -11,9 +12,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">date</th>
+                        <th scope="col">Date</th>
 
-                        <th scope="col">Ammount</th>
+                        <th scope="col">Amount</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Delivery in</th>
                         <th scope="col"></th>

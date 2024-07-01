@@ -7,9 +7,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+            @if(Auth::user()->restaurant)
               <li class="nav-item">
                 <a class="nav-link active fw-bold" aria-current="page" href="{{ route('admin.home') }}"><i class="fa-solid fa-chart-line"></i> Statistics</a>
               </li>
+            @endif
             </ul>
           </div>
         </div>

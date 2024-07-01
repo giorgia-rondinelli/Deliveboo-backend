@@ -22,7 +22,7 @@
                 @foreach ($orderOne->dishes as $dish)
                   <tr>
                     <td>{{ $dish->name }}</td>
-                    <td>{{ $dish->price }}</td>
+                    <td>&euro;{{ $dish->price }}</td>
                     <td>{{ $dish->pivot->dish_quantity }}</td>
                   </tr>
                 @endforeach

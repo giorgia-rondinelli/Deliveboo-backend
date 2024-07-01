@@ -8,6 +8,7 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use App\functions\Helper;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -48,6 +49,7 @@ class OrderController extends Controller
             $newOrder->e_mail = $request->input('mail');
             $newOrder->address = $request->input('address');
             $newOrder->total_price = $request->input('subTotal');
+            $newOrder->date = Carbon::now();
 
             $newOrder->save();
             //popoliamo orders

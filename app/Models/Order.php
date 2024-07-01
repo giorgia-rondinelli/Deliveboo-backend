@@ -19,10 +19,10 @@ class Order extends Model
     public function getFormattedCreatedAtAttribute()
     {
         // Converti la data in un oggetto DateTime
-        $dateTime = new DateTime($this->created_at);
+        $dateTime = new DateTime($this->date);
 
         // Imposta la localizzazione in italiano
-        setlocale(LC_TIME, 'it_IT.UTF-8', 'it_IT', 'it', 'Italian_Italy.1252');
+        setlocale(LC_TIME, 'en_GB.UTF-8', 'en_GB', 'en', 'English_United Kingdom.1252');
 
         // Format the date to a string in Italian senza il giorno della settimana
         $formattedDate = strftime('%d %B %Y', $dateTime->getTimestamp());

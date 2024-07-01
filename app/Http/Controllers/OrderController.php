@@ -30,7 +30,7 @@ class OrderController extends Controller
         // Recupera tutti gli ordini associati ai piatti del ristorante
         $auht_orders = Order::whereHas('dishes', function ($query) use ($dishIds) {
             $query->whereIn('dishes.id', $dishIds);
-        })->get();
+        })->orderBy('date', 'desc')->get();
 
         // Ritorna la vista con gli ordini autorizzati
         return view('admin.orders.index', compact('auht_orders'));
