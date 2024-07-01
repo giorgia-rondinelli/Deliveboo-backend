@@ -16,7 +16,7 @@ class ordersTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for($i=0; $i<50; $i++){
+        for($i=0; $i<150; $i++){
             $newOrder = new Order();
             $newOrder->name = $faker->name();
             $newOrder->slug = Helper::generateSlug($newOrder->name, Order::class);
