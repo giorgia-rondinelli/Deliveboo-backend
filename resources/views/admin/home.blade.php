@@ -8,8 +8,8 @@
         </div>
 
         <div class="d-flex">
-            <div>
-                <canvas id="myChart" style="width:1000px"></canvas>
+            <div class="w-75">
+                <canvas id="myChart" style="width:100%"></canvas>
             </div>
 
             <div>
