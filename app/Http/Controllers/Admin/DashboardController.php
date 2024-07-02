@@ -19,7 +19,7 @@ class DashboardController extends Controller
 
         if (!$restaurant) {
             // Gestisci il caso in cui il ristorante non esiste per l'utente autenticato
-            return redirect()->route('admin.restaurants.create')->with('error', 'Restaurant not found');
+            return redirect()->route('admin.restaurants.index')->with('error', 'Restaurant not found');
         }
 
         // Recupera tutti gli ID dei piatti del ristorante
