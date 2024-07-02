@@ -4,7 +4,7 @@
 {{-- @dd($restaurant); --}}
 
 @if(!$restaurant)
-    <h1 class="m-3">Registrazione Ristorante</h1>
+    <h1 class="m-3">Restaurant Registration</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -102,8 +102,7 @@
         </li>
         @endforeach
     </ul>
-    @else
-    <p>Questo ristoraante è fuori dal comune!!!</p>
+
 
     @endif
 
