@@ -33,7 +33,7 @@
         </div>
 
         <div>
-            <p class="fs-4"><strong>Total ammount order:</strong> &euro;{{ $orderOne->total_price }}</p>
+            <p class="fs-4"><strong>Total amount order:</strong> &euro;{{ $orderOne->total_price }}</p>
         </div>
 
         <div>
