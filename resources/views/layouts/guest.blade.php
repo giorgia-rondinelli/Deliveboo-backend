@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Document</title>
+    <title>DeliveBoo</title>
 </head>
 
 <body>
